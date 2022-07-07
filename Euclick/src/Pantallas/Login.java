@@ -89,6 +89,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        login.setBackground(new java.awt.Color(51, 255, 0));
         login.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         login.setText("Iniciar Sesión");
         login.addMouseListener(new java.awt.event.MouseAdapter() {
