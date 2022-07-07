@@ -12,7 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/Pantallas/Login.java</file>
+=======
+            <file>file:/C:/Users/user/OneDrive/Documents/NetBeansProjects/Euclick/src/Pantallas/pantallanicio.java</file>
+            <file>file:/C:/Users/user/OneDrive/Documents/NetBeansProjects/Euclick/src/Pantallas/pantallaEditarperfil.java</file>
+            <file>file:/C:/Users/user/OneDrive/Documents/NetBeansProjects/Euclick/src/Pantallas/pantallaRegistro.java</file>
+            <file>file:/C:/Users/user/OneDrive/Documents/NetBeansProjects/Euclick/src/Pantallas/pantallaTablero.java</file>
+>>>>>>> 8f101f9a80a390a1227b6aea13dabc35bb4152cc
         </group>
     </open-files>
 </project-private>

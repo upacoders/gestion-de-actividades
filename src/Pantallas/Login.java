@@ -16,14 +16,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    
     int xMouse, yMouse;
-    
+
     public Login() {
         initComponents();
     }
-    
-    public void setScaletFoto(JLabel lblFoto, String rutaFoto){
+
+    public void setScaletFoto(JLabel lblFoto, String rutaFoto) {
         ImageIcon foto = new ImageIcon(rutaFoto);
         Icon icono = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), 1));
         lblFoto.setIcon(icono);
@@ -285,7 +284,7 @@ public class Login extends javax.swing.JFrame {
     private void barraDeAccionesSobrePantallaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraDeAccionesSobrePantallaMouseReleased
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse,y - yMouse);
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_barraDeAccionesSobrePantallaMouseReleased
 
     private void botonSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSalidaMouseClicked
@@ -297,34 +296,34 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalidaMouseEntered
 
     private void botonSalidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSalidaMouseExited
-       //a
+        //a
     }//GEN-LAST:event_botonSalidaMouseExited
 
     private void userMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMousePressed
-        if(user.getText().equals("ingrese su usuario")) {
+        if (user.getText().equals("ingrese su usuario")) {
             user.setText("");
             user.setForeground(Color.black);
         }
-        
-        if (String.valueOf(password.getPassword()).isEmpty()){
+
+        if (String.valueOf(password.getPassword()).isEmpty()) {
             password.setText("********");
             password.setForeground(Color.gray);
         }
-        
+
     }//GEN-LAST:event_userMousePressed
 
     private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
-        
-        if (String.valueOf(password.getPassword()).equals("********")){
+
+        if (String.valueOf(password.getPassword()).equals("********")) {
             password.setText("");
             password.setForeground(Color.black);
         }
-        
-        if(user.getText().isEmpty()){
+
+        if (user.getText().isEmpty()) {
             user.setText("Ingrese su usuario");
             user.setForeground(Color.gray);
         }
-        
+
     }//GEN-LAST:event_passwordMousePressed
 
     private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
@@ -332,7 +331,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: "+ user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_loginMouseClicked
 
     /**
