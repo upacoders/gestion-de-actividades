@@ -1,0 +1,13 @@
+Pantallas.pantallaRegistro
+Pantallas.pantallaRegistro$8
+Pantallas.pantallaRegistro$9
+Pantallas.pantallaRegistro$1
+Pantallas.pantallaRegistro$2
+Pantallas.pantallaRegistro$12
+Pantallas.pantallaRegistro$3
+Pantallas.pantallaRegistro$11
+Pantallas.pantallaRegistro$4
+Pantallas.pantallaRegistro$5
+Pantallas.pantallaRegistro$6
+Pantallas.pantallaRegistro$7
+Pantallas.pantallaRegistro$10

@@ -21,16 +21,6 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
-        
-        setScaletFoto(logo, "C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\Sistema_de_la_Clase2\\src\\imagenes\\procedimiento.png");
-        setScaletFoto(loginImage, "C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\Sistema_de_la_Clase2\\src\\imagenes\\iniciar-sesion.png");
-        setScaletFoto(leftImage, "C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\Sistema_de_la_Clase2\\src\\imagenes\\pm.png");
-    }
-    
-    public void setScaletFoto(JLabel lblFoto, String rutaFoto){
-        ImageIcon foto = new ImageIcon(rutaFoto);
-        Icon icono = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), 1));
-        lblFoto.setIcon(icono);
     }
 
     /**
@@ -89,6 +79,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        login.setBackground(new java.awt.Color(255, 51, 51));
         login.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         login.setText("Iniciar Sesión");
         login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -169,14 +160,20 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 440, 280));
-        bg.add(loginImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 70, 60));
-        bg.add(leftImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 300, 300));
+
+        loginImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iniciar-sesion.png"))); // NOI18N
+        bg.add(loginImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 90, 90));
+
+        leftImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pm.png"))); // NOI18N
+        bg.add(leftImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 340, 370));
 
         loginTitle.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
         loginTitle.setText("Login");
         bg.add(loginTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 110, 50));
 
         logoAndNameSpace.setBackground(new java.awt.Color(88, 104, 117));
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
 
         companyName.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
         companyName.setText("Euclick");
