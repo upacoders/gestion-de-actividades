@@ -1,3 +1,0 @@
-Pantallas.pantallaEditarperfil
-Pantallas.pantallaEditarperfil$1
-Pantallas.pantallaEditarperfil$2

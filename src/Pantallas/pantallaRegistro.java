@@ -60,7 +60,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreActionPerformed(evt);
@@ -103,7 +103,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
         getContentPane().add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 227, 24));
 
         btnconti.setText("Crear cuenta");
-        btnconti.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnconti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncontiActionPerformed(evt);
@@ -137,7 +137,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
         getContentPane().add(txtrepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 227, 24));
 
         btnpassvis.setText("ø");
-        btnpassvis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnpassvis.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnpassvis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnpassvisMousePressed(evt);
@@ -157,7 +157,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
         getContentPane().add(btnpassvis, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 417, 40, 30));
 
         btnrepassvis.setText("ø");
-        btnrepassvis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnrepassvis.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnrepassvis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnrepassvisMousePressed(evt);
@@ -188,7 +188,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
         btnvolver.setToolTipText("");
         btnvolver.setBorder(null);
         btnvolver.setBorderPainted(false);
-        btnvolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnvolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnvolver.setFocusPainted(false);
         btnvolver.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnvolver.addActionListener(new java.awt.event.ActionListener() {
