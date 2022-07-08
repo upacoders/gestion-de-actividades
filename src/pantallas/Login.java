@@ -4,6 +4,7 @@
  */
 package pantallas;
 
+import Pantallas.pantallaRegistro;
 import java.awt.Color;
 import javax.swing.*;
 
