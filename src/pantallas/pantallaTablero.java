@@ -25,6 +25,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelusuario = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
         btnmenu = new javax.swing.JButton();
@@ -50,6 +51,10 @@ public class pantallaTablero extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        labelusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
+        getContentPane().add(labelusuario);
+        labelusuario.setBounds(1680, 70, 55, 55);
 
         lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
@@ -120,7 +125,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti.setBorderPainted(false);
         btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(btnaggacti);
-        btnaggacti.setBounds(1450, 160, 250, 40);
+        btnaggacti.setBounds(1280, 170, 250, 40);
 
         lblevaluaciones.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblevaluaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -225,6 +230,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
     private javax.swing.JLabel lblnombrefirma;
