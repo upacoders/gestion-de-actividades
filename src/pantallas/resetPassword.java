@@ -15,8 +15,8 @@ public class resetPassword extends javax.swing.JFrame {
     /**
      * Creates new form resetPassword
      */
-    
     int xMouse, yMouse;
+
     public resetPassword() {
         initComponents();
     }
@@ -40,6 +40,7 @@ public class resetPassword extends javax.swing.JFrame {
         mail = new javax.swing.JTextField();
         sendRecBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        volverBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -118,7 +119,7 @@ public class resetPassword extends javax.swing.JFrame {
 
         textoCorreo.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         textoCorreo.setText("Correo");
-        panelPrincipalResetPassword.add(textoCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, 30));
+        panelPrincipalResetPassword.add(textoCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, 30));
 
         mail.setText("ponga su correo");
         mail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,7 +132,7 @@ public class resetPassword extends javax.swing.JFrame {
                 mailActionPerformed(evt);
             }
         });
-        panelPrincipalResetPassword.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 190, 30));
+        panelPrincipalResetPassword.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 190, 30));
 
         sendRecBtn.setText("Recuperar");
         sendRecBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,13 +140,21 @@ public class resetPassword extends javax.swing.JFrame {
                 sendRecBtnMouseClicked(evt);
             }
         });
-        panelPrincipalResetPassword.add(sendRecBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, 30));
+        panelPrincipalResetPassword.add(sendRecBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Recuperar Contraseña");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelPrincipalResetPassword.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 250, 40));
+
+        volverBtn.setText("Volver");
+        volverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverBtnActionPerformed(evt);
+            }
+        });
+        panelPrincipalResetPassword.add(volverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +199,12 @@ public class resetPassword extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void volverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBtnActionPerformed
+        Login newframe = new Login();
+        newframe.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,5 +252,6 @@ public class resetPassword extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipalResetPassword;
     private javax.swing.JButton sendRecBtn;
     private javax.swing.JLabel textoCorreo;
+    private javax.swing.JButton volverBtn;
     // End of variables declaration//GEN-END:variables
 }
