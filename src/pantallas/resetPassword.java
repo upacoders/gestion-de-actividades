@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Pantallas;
+package pantallas;
 
 import java.awt.Color;
 
@@ -49,6 +49,7 @@ public class resetPassword extends javax.swing.JFrame {
         panelPrincipalResetPassword.setBackground(new java.awt.Color(255, 255, 255));
         panelPrincipalResetPassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelOpcionesPantalla.setBackground(new java.awt.Color(88, 104, 117));
         panelOpcionesPantalla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelOpcionesPantallaMousePressed(evt);
@@ -84,6 +85,8 @@ public class resetPassword extends javax.swing.JFrame {
         );
 
         panelPrincipalResetPassword.add(panelOpcionesPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 20));
+
+        panelLogo.setBackground(new java.awt.Color(88, 104, 117));
 
         companyName.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
         companyName.setText("Euclick");

@@ -75,6 +75,11 @@ public class Login extends javax.swing.JFrame {
 
         forgotPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         forgotPassword.setText("¿Olvidó su contraseña?");
+        forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseClicked(evt);
+            }
+        });
 
         registrarse.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registrarse.setText("Registrarse");
@@ -194,7 +199,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        botonSalida.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        botonSalida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         botonSalida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botonSalida.setText("X");
         botonSalida.setToolTipText("");
@@ -273,7 +278,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        // TODO add your handling code here:
+        pantallaRegistro newframe = new pantallaRegistro();
+        newframe.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_registrarseActionPerformed
 
     private void barraDeAccionesSobrePantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraDeAccionesSobrePantallaMousePressed
@@ -333,6 +340,12 @@ public class Login extends javax.swing.JFrame {
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
         javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_loginMouseClicked
+
+    private void forgotPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseClicked
+        resetPassword newframe = new resetPassword();
+        newframe.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_forgotPasswordMouseClicked
 
     /**
      * @param args the command line arguments

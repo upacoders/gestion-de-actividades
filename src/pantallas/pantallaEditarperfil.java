@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package Pantallas;
+package pantallas;
 
 /**
  *
@@ -33,9 +33,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         lblpartelat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1760, 690));
         setMinimumSize(new java.awt.Dimension(1760, 690));
-        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         getContentPane().setLayout(null);
 
