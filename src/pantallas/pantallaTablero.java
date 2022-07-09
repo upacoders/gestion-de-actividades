@@ -25,6 +25,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelusuario = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
         btnmenu = new javax.swing.JButton();
@@ -45,11 +46,13 @@ public class pantallaTablero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(1760, 690));
         setMinimumSize(new java.awt.Dimension(1760, 690));
-        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        labelusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
+        getContentPane().add(labelusuario);
+        labelusuario.setBounds(1680, 70, 55, 55);
 
         lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
@@ -70,7 +73,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnmenu.setAlignmentX(0.5F);
         btnmenu.setBorder(null);
         btnmenu.setBorderPainted(false);
-        btnmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnmenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnmenu.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         getContentPane().add(btnmenu);
@@ -80,7 +83,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton1.setText("Ejercicios de trabajo");
         jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -93,7 +96,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton2.setText("Dashboard");
         jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton2);
         jButton2.setBounds(10, 247, 310, 40);
 
@@ -101,7 +104,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton3.setText("Configuración");
         jButton3.setBorderPainted(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton3);
         jButton3.setBounds(10, 289, 310, 40);
 
@@ -118,9 +121,9 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti.setText("+ Agregar Actividad");
         btnaggacti.setBorder(null);
         btnaggacti.setBorderPainted(false);
-        btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(btnaggacti);
-        btnaggacti.setBounds(1450, 160, 250, 40);
+        btnaggacti.setBounds(1280, 170, 250, 40);
 
         lblevaluaciones.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblevaluaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -141,7 +144,7 @@ public class pantallaTablero extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        listpendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listpendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listpendientes.setName(""); // NOI18N
         panelpendientes.setViewportView(listpendientes);
         listpendientes.getAccessibleContext().setAccessibleDescription("");
@@ -150,7 +153,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         panelpendientes.setBounds(500, 250, 280, 390);
 
         panelenproceso.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelenproceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelenproceso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         listaenproceso.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "En proceso", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -169,7 +172,7 @@ public class pantallaTablero extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelfinaladas.setViewportView(jList1);
 
         getContentPane().add(panelfinaladas);
@@ -225,6 +228,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
     private javax.swing.JLabel lblnombrefirma;
