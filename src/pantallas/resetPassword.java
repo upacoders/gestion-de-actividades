@@ -5,6 +5,7 @@
 package pantallas;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -132,12 +133,23 @@ public class resetPassword extends javax.swing.JFrame {
                 mailActionPerformed(evt);
             }
         });
+        mail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mailKeyPressed(evt);
+            }
+        });
         panelPrincipalResetPassword.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 190, 30));
 
         sendRecBtn.setText("Enviar");
+        sendRecBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sendRecBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sendRecBtnMouseClicked(evt);
+            }
+        });
+        sendRecBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendRecBtnActionPerformed(evt);
             }
         });
         panelPrincipalResetPassword.add(sendRecBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 90, 30));
@@ -149,6 +161,7 @@ public class resetPassword extends javax.swing.JFrame {
         panelPrincipalResetPassword.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 250, 40));
 
         volverBtn.setText("Volver");
+        volverBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         volverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverBtnActionPerformed(evt);
@@ -205,6 +218,20 @@ public class resetPassword extends javax.swing.JFrame {
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverBtnActionPerformed
+
+    private void sendRecBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendRecBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sendRecBtnActionPerformed
+
+    private void mailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mailKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (mail.getText().equals("")){
+                javax.swing.JOptionPane.showMessageDialog(this, "No se ha ingresado ningún correo", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(this, "Se ha enviado un correo de recuperacion a " + mail.getText(), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_mailKeyPressed
 
     /**
      * @param args the command line arguments
