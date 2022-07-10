@@ -4,6 +4,8 @@
  */
 package pantallas;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Lenovo
@@ -15,6 +17,15 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
      */
     public espacio_de_trabajo() {
         initComponents();
+        
+        agregarEspacioTrabajo eT = new agregarEspacioTrabajo();
+        eT.setSize(540,445);
+        eT.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(eT, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }
 
     /**
@@ -45,6 +56,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         elegirTablero = new javax.swing.JComboBox<>();
         elegirEspacio = new javax.swing.JComboBox<>();
         agregarTablero1 = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,6 +210,19 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         });
         jPanel1.add(agregarTablero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 300, 30));
 
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -260,6 +285,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     private javax.swing.JButton agregarTablero1;
     private javax.swing.JLabel companyName;
     private javax.swing.JButton configuracionBtn;
+    private javax.swing.JPanel content;
     private javax.swing.JButton dashboardBtn;
     private javax.swing.JComboBox<String> elegirEspacio;
     private javax.swing.JComboBox<String> elegirTablero;
