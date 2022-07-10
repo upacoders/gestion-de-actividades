@@ -15,17 +15,12 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     /**
      * Creates new form espacio_de_trabajo
      */
+    
+    int xMouse,yMouse;
+    
     public espacio_de_trabajo() {
         initComponents();
         
-        agregarEspacioTrabajo eT = new agregarEspacioTrabajo();
-        eT.setSize(540,445);
-        eT.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(eT, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
     }
 
     /**
@@ -38,7 +33,6 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         panelOpcionesPantalla = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -59,17 +53,30 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desktopimage.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 410, 300));
-
         panelOpcionesPantalla.setBackground(new java.awt.Color(88, 104, 117));
+        panelOpcionesPantalla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelOpcionesPantallaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                panelOpcionesPantallaMouseReleased(evt);
+            }
+        });
 
         exitBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         exitBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitBtn.setText("X");
+        exitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOpcionesPantallaLayout = new javax.swing.GroupLayout(panelOpcionesPantalla);
         panelOpcionesPantalla.setLayout(panelOpcionesPantallaLayout);
@@ -203,6 +210,11 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         agregarTablero1.setText("+ Agregar Espacio de Trabajo");
         agregarTablero1.setBorder(null);
         agregarTablero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        agregarTablero1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregarTablero1MouseClicked(evt);
+            }
+        });
         agregarTablero1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarTablero1ActionPerformed(evt);
@@ -244,6 +256,32 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     private void agregarTablero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTablero1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_agregarTablero1ActionPerformed
+
+    private void agregarTablero1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarTablero1MouseClicked
+        AgregarEspacioTrabajo eT = new AgregarEspacioTrabajo();
+        eT.setSize(540,470);
+        eT.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(eT, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_agregarTablero1MouseClicked
+
+    private void panelOpcionesPantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOpcionesPantallaMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_panelOpcionesPantallaMousePressed
+
+    private void panelOpcionesPantallaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOpcionesPantallaMouseReleased
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_panelOpcionesPantallaMouseReleased
+
+    private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -291,7 +329,6 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> elegirTablero;
     private javax.swing.JButton espacioDeTrabajoBtn;
     private javax.swing.JLabel exitBtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
