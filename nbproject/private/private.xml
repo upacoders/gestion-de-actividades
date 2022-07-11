@@ -12,19 +12,7 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/Login.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/pantallaEditarperfil.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/pantallaTablero.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/pantallaRegistro.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/resetPassword.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/ejecutarPrograma.java</file>
-=======
-            <file>file:/C:/Users/user/OneDrive/Desktop/proyectoinformatica/gestion-de-actividades/src/ejecutarPrograma.java</file>
-            <file>file:/C:/Users/user/OneDrive/Desktop/proyectoinformatica/gestion-de-actividades/src/pantallas/pantallaTablero.java</file>
-            <file>file:/C:/Users/user/OneDrive/Desktop/proyectoinformatica/gestion-de-actividades/src/pantallas/resetPassword.java</file>
-            <file>file:/C:/Users/user/OneDrive/Desktop/proyectoinformatica/gestion-de-actividades/src/pantallas/Login.java</file>
->>>>>>> d299a886549d64f6b2053bb5c45d10a1c3ee2ff3
+            <file>file:/C:/Users/tobia/Desktop/Proyecto%20modo%20serio/gestion-de-actividades/src/baseDatos/Conexion.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,9 +5,9 @@ import java.sql.*;
 //finanzas_personales
 
 public class Conexion {
-	private String url = "jdbc:postgresql://localhost:5433/finanzas_personales";
+	private String url = "jdbc:postgresql://localhost:5433/nombre_de_sus_bases_de_datos";
         /*
-        *cambiar el numero de puerto al utilizado.
+        cambiar el numero de puerto al utilizado y el nombre de la base de datos.
         */
 	private String usuario = "postgres";
 	private String contrasenia = "12345";
