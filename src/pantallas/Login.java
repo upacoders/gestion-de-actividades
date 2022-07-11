@@ -6,6 +6,12 @@ package pantallas;
 
 import Pantallas.pantallaRegistro;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 /**
@@ -22,6 +28,19 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     int xMouse, yMouse;
+    public Clip clip;
+    public String ruta = "/sonidos/";
+    
+    public void sonido(String archivo){
+        try{
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta+archivo+".wav")));
+            clip.start();
+        }catch (IOException | LineUnavailableException | UnsupportedAudioFileException e){
+                        
+        }
+        
+    }
 
     public Login() {
         initComponents();
@@ -81,23 +100,31 @@ public class Login extends javax.swing.JFrame {
 
         forgotPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         forgotPassword.setText("¿Olvidó su contraseña?");
+        forgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 forgotPasswordMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseEntered(evt);
             }
         });
 
         registrarse.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registrarse.setText("Registrarse");
+        registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarseActionPerformed(evt);
             }
         });
 
-        login.setBackground(new java.awt.Color(255, 51, 51));
         login.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         login.setText("Iniciar Sesión");
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
@@ -121,12 +148,22 @@ public class Login extends javax.swing.JFrame {
                 userActionPerformed(evt);
             }
         });
+        user.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userKeyPressed(evt);
+            }
+        });
 
         password.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         password.setText("********");
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passwordMousePressed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
 
@@ -344,7 +381,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+        sonido("sonidointro");
         javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_loginMouseClicked
 
     private void forgotPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseClicked
@@ -352,6 +391,27 @@ public class Login extends javax.swing.JFrame {
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_forgotPasswordMouseClicked
+
+    private void forgotPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseEntered
+        forgotPassword.setForeground(Color.blue);
+    }//GEN-LAST:event_forgotPasswordMouseEntered
+
+    private void forgotPasswordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseExited
+        forgotPassword.setForeground(Color.black);
+    }//GEN-LAST:event_forgotPasswordMouseExited
+
+    private void userKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userKeyPressed
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           password.setText("");
+           password.requestFocus();
+        }
+    }//GEN-LAST:event_userKeyPressed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+             javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments

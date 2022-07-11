@@ -5,6 +5,7 @@
 package pantallas;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -32,7 +33,7 @@ public class resetPassword extends javax.swing.JFrame {
 
         panelPrincipalResetPassword = new javax.swing.JPanel();
         panelOpcionesPantalla = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        exitBtn = new javax.swing.JLabel();
         panelLogo = new javax.swing.JPanel();
         companyName = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -60,13 +61,13 @@ public class resetPassword extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        exitBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        exitBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitBtn.setText("X");
+        exitBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                exitBtnMouseClicked(evt);
             }
         });
 
@@ -76,12 +77,12 @@ public class resetPassword extends javax.swing.JFrame {
             panelOpcionesPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesPantallaLayout.createSequentialGroup()
                 .addGap(0, 586, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelOpcionesPantallaLayout.setVerticalGroup(
             panelOpcionesPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOpcionesPantallaLayout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(exitBtn)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -132,12 +133,23 @@ public class resetPassword extends javax.swing.JFrame {
                 mailActionPerformed(evt);
             }
         });
+        mail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mailKeyPressed(evt);
+            }
+        });
         panelPrincipalResetPassword.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 190, 30));
 
         sendRecBtn.setText("Enviar");
+        sendRecBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sendRecBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sendRecBtnMouseClicked(evt);
+            }
+        });
+        sendRecBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendRecBtnActionPerformed(evt);
             }
         });
         panelPrincipalResetPassword.add(sendRecBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 90, 30));
@@ -149,6 +161,7 @@ public class resetPassword extends javax.swing.JFrame {
         panelPrincipalResetPassword.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 250, 40));
 
         volverBtn.setText("Volver");
+        volverBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         volverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverBtnActionPerformed(evt);
@@ -196,15 +209,29 @@ public class resetPassword extends javax.swing.JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panelOpcionesPantallaMouseReleased
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_exitBtnMouseClicked
 
     private void volverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBtnActionPerformed
         Login newframe = new Login();
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverBtnActionPerformed
+
+    private void sendRecBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendRecBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sendRecBtnActionPerformed
+
+    private void mailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mailKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (mail.getText().equals("")){
+                javax.swing.JOptionPane.showMessageDialog(this, "No se ha ingresado ningún correo", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(this, "Se ha enviado un correo de recuperacion a " + mail.getText(), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_mailKeyPressed
 
     /**
      * @param args the command line arguments
@@ -243,7 +270,7 @@ public class resetPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel companyName;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel exitBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField mail;
