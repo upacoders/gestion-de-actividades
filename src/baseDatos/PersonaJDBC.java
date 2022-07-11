@@ -23,7 +23,7 @@ public class PersonaJDBC {
 		this.conexion = con.getConexion();
 	}
 
-	private String insertSQL = "insert into persona(nombre, apellido, correo, contrasena)" + " values(?,?,?,?)"; // usuario
+	private String insertSQL = "insert into persona(nombre, apellido, correo, contrasea)" + " values(?,?,?,?)"; // usuario
 
 	public boolean existeEmail(String email) {
 
@@ -49,7 +49,7 @@ public class PersonaJDBC {
 		try {
 			// se crea la consulta
 			String consultaSql = "Select count(*) as cantidad_registros from persona" + " where correo like '"
-					+ email + "'" + " and contrasenia like '" + contrasenia + "'";
+					+ email + "'" + " and contrasea like '" + contrasenia + "'";
 			// System.out.println(consultaSql);
 			Statement statement = null;
 			statement = conexion.createStatement();
@@ -90,7 +90,7 @@ public class PersonaJDBC {
 	public int getIdUsuario(String correo, String contrasenia)
 	{
 		String consultaSQL = "select id_persona from usuario where correo like '" 
-				+ correo + "' " + " and contrasenia like '" + contrasenia + "'";
+				+ correo + "' " + " and contrasea like '" + contrasenia + "'";
 		int id_usuario = 0;;
 		
 		try {
@@ -123,7 +123,7 @@ public class PersonaJDBC {
 	public boolean cuentaYaRegistrada(String email) {
 		// se crea la consulta sql para verificar si ya hay un usuario con el email y
 		// usuario recibidos
-		String consultaSql = "select id_usuario from usuario" + " where correo like '" + email + "'";
+		String consultaSql = "select id_persona from persona" + " where correo like '" + email + "'";
 
 		// se debe ver si la consulta muestra algun registro
 		boolean cuentaYaExiste = con.existeAlgunRegistro(consultaSql);
@@ -143,8 +143,8 @@ public class PersonaJDBC {
 	 * @param nombre
 	 * @param apellido
 	 * @param email
-	 * @param contrasenia
-	 * @param confirmacionContrasenia
+	 * @param contraseña
+	 * @param confirmacionContraseña
 	 * @return true si el usuario pudo registrarse, false si el usuario no pudo
 	 *         registrarse
 	 */
@@ -179,7 +179,7 @@ public class PersonaJDBC {
 	
 	public int getIdUsuarioConCorreo(String correo)
 	{
-		String consultaSQL = "select id_usuario from usuario where correo like '" 
+		String consultaSQL = "select id_persona from persona where correo like '" 
 				+ correo + "'";
 		int id_usuario = 0;;
 		
@@ -203,7 +203,7 @@ public class PersonaJDBC {
 	
 	public String[] recuperarCuenta(int id_usuario)
 	{
-		String consultaSQL = "select usuario, contrasenia from usuario where id_usuario = " 
+		String consultaSQL = "select correo, contrasea from persona where id_persona = " 
 				+ id_usuario + "";
 		String informacionCuenta[] = new String[2];
 		
@@ -215,8 +215,8 @@ public class PersonaJDBC {
 			
 			// se guarda la informacion de la cuenta en el vector
 			resultSet.next();
-			informacionCuenta[0] = resultSet.getString("usuario");
-			informacionCuenta[1] = resultSet.getString("contrasenia");
+			informacionCuenta[0] = resultSet.getString("correo");
+			informacionCuenta[1] = resultSet.getString("contrasea");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
