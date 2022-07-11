@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
 <<<<<<< HEAD
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/Login.java</file>
@@ -23,5 +24,8 @@
 >>>>>>> e05fa36babf26ce4904e0a5345bc9e2a9f3c1793
 >>>>>>> 83fc8ffec3b3d8561a3941355dbb8c69590d5a55
         </group>
+=======
+        <group/>
+>>>>>>> 7b9cc65122100705edfbf767e0f390b58d949793
     </open-files>
 </project-private>
