@@ -5,12 +5,12 @@ import java.sql.*;
 //finanzas_personales
 
 public class Conexion {
-	private String url = "jdbc:postgresql://localhost:5432/euclick";
+	private String url = "jdbc:postgresql://localhost:5433/gestion_proyecto";
         /*
         cambiar el numero de puerto al utilizado y el nombre de la base de datos.
         */
 	private String usuario = "postgres";
-	private String contrasenia = "12345678";
+	private String contrasenia = "12345";
 	private Connection conexion = null;
 	
 
