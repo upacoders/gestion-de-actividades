@@ -136,25 +136,25 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         menuBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         menuBtn.setText("MENU");
         menuBtn.setBorder(null);
-        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         espacioDeTrabajoBtn.setBackground(new java.awt.Color(255, 255, 204));
         espacioDeTrabajoBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         espacioDeTrabajoBtn.setText("Espacio de Trabajo");
         espacioDeTrabajoBtn.setBorder(null);
-        espacioDeTrabajoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        espacioDeTrabajoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         dashboardBtn.setBackground(new java.awt.Color(255, 255, 204));
         dashboardBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         dashboardBtn.setText("Dashboard");
         dashboardBtn.setBorder(null);
-        dashboardBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dashboardBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         configuracionBtn.setBackground(new java.awt.Color(255, 255, 204));
         configuracionBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         configuracionBtn.setText("Configuracion");
         configuracionBtn.setBorder(null);
-        configuracionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configuracionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -193,7 +193,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         agregarTablero.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         agregarTablero.setText("+ Agregar Tablero");
         agregarTablero.setBorder(null);
-        agregarTablero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        agregarTablero.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         agregarTablero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarTableroActionPerformed(evt);
@@ -209,7 +209,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         agregarTablero1.setText("+ Agregar Espacio de Trabajo");
         agregarTablero1.setBorder(null);
-        agregarTablero1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        agregarTablero1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         agregarTablero1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 agregarTablero1MouseClicked(evt);
