@@ -5,6 +5,11 @@
 
 package Pantallas;
 
+import java.awt.BorderLayout;
+import pantallas.AgregarEspacioTrabajo;
+import pantallas.espacio_de_trabajo;
+import pantallas.estadopantallatablero;
+
 /**
  *
  * @author user
@@ -43,6 +48,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         listaenproceso = new javax.swing.JList<>();
         panelfinaladas = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -52,7 +58,7 @@ public class pantallaTablero extends javax.swing.JFrame {
 
         labelusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
         getContentPane().add(labelusuario);
-        labelusuario.setBounds(1680, 70, 55, 55);
+        labelusuario.setBounds(1260, 70, 55, 55);
 
         lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
@@ -122,8 +128,13 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti.setBorder(null);
         btnaggacti.setBorderPainted(false);
         btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnaggacti.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnaggactiMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnaggacti);
-        btnaggacti.setBounds(1280, 170, 250, 40);
+        btnaggacti.setBounds(1160, 150, 250, 40);
 
         lblevaluaciones.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblevaluaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -150,7 +161,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         listpendientes.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(panelpendientes);
-        panelpendientes.setBounds(500, 250, 280, 390);
+        panelpendientes.setBounds(360, 500, 460, 120);
 
         panelenproceso.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         panelenproceso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -163,7 +174,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         panelenproceso.setViewportView(listaenproceso);
 
         getContentPane().add(panelenproceso);
-        panelenproceso.setBounds(880, 250, 280, 390);
+        panelenproceso.setBounds(360, 240, 460, 120);
 
         panelfinaladas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
@@ -176,7 +187,9 @@ public class pantallaTablero extends javax.swing.JFrame {
         panelfinaladas.setViewportView(jList1);
 
         getContentPane().add(panelfinaladas);
-        panelfinaladas.setBounds(1250, 250, 280, 390);
+        panelfinaladas.setBounds(360, 370, 460, 120);
+        getContentPane().add(content);
+        content.setBounds(860, 190, 540, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,6 +197,17 @@ public class pantallaTablero extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
+        estadopantallatablero pT = new estadopantallatablero();
+        pT.setSize(540,470);
+        pT.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(pT, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnaggactiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -224,6 +248,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaggacti;
     private javax.swing.JButton btnmenu;
+    private javax.swing.JPanel content;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

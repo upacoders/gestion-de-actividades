@@ -208,6 +208,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         agregarTablero1.setBackground(new java.awt.Color(255, 255, 204));
         agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         agregarTablero1.setText("+ Agregar Espacio de Trabajo");
+        agregarTablero1.setToolTipText("");
         agregarTablero1.setBorder(null);
         agregarTablero1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         agregarTablero1.addMouseListener(new java.awt.event.MouseAdapter() {
