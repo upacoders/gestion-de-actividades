@@ -5,12 +5,12 @@ import java.sql.*;
 //finanzas_personales
 
 public class Conexion {
-	private String url = "jdbc:postgresql://localhost:5433/nombre_de_sus_bases_de_datos";
+	private String url = "jdbc:postgresql://localhost:5432/euclick";
         /*
         cambiar el numero de puerto al utilizado y el nombre de la base de datos.
         */
 	private String usuario = "postgres";
-	private String contrasenia = "12345";
+	private String contrasenia = "12345678";
 	private Connection conexion = null;
 	
 
@@ -41,7 +41,7 @@ public class Conexion {
 	
 	
 	/**
-	 * Esta funcion toma como par�metro una conexion y una consulta sql, y retorna true si
+	 * Esta funcion toma como parametro una conexion y una consulta sql, y retorna true si
 	 * esa consulta muestra alg�n registro (por lo menos 1 fila)
 	 * @param conection
 	 * @param consultaSql
