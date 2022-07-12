@@ -172,12 +172,22 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         add(botonTrabajo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
         guardarBtn.setText("Guardar");
+        guardarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnActionPerformed(evt);
+            }
+        });
         add(guardarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, -1, -1));
 
         cancelarBtn.setText("Cancelar");
         cancelarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancelarBtnMouseClicked(evt);
+            }
+        });
+        cancelarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBtnActionPerformed(evt);
             }
         });
         add(cancelarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
@@ -224,6 +234,14 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     private void cancelarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarBtnMouseClicked
         setVisible(false);
     }//GEN-LAST:event_cancelarBtnMouseClicked
+
+    private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnActionPerformed
+
+    private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
