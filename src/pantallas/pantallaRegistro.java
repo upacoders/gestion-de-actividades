@@ -5,9 +5,10 @@
 package Pantallas;
 
 import baseDatos.PersonaJDBC;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pantallas.Login;
 
@@ -16,11 +17,12 @@ import pantallas.Login;
  * @author user
  */
 public class pantallaRegistro extends javax.swing.JFrame {
-    private PersonaJDBC personaJDBC= new PersonaJDBC();
+    private PersonaJDBC personaJDBC;
     /**
      * Creates new form pantallaRegistro
      */
-    public pantallaRegistro() {
+    public pantallaRegistro() throws Exception {
+        personaJDBC= new PersonaJDBC();
         initComponents();
     }
     
@@ -379,7 +381,11 @@ public class pantallaRegistro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantallaRegistro().setVisible(true);
+                try {
+                    new pantallaRegistro().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(pantallaRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -1,47 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/Pantallas/pantallaRegistro.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>20</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/Login.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/AgregarEspacioTrabajo.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/baseDatos/Conexion.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/pantallaTablero.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/espacio_de_trabajo.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/baseDatos/PersonaJDBC.java</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/resetPassword.java</file>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/AgregarEspacioTrabajo.java</file>
-            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/espacio_de_trabajo.java</file>
-            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/acciones.java</file>
-            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/AgregarAcciones.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/tobia/Desktop/Proyecto%20modo%20serio/gestion-de-actividades/src/baseDatos/Conexion.java</file>
-=======
-            <file>file:/Users/ignaciodominguez/Documents/proyectoUni/src/pantallas/VisualizacionDashboard.java</file>
-            <file>file:/Users/ignaciodominguez/Documents/proyectoUni/src/pantallas/dashboard.java</file>
-            <file>file:/Users/ignaciodominguez/Documents/proyectoUni/src/pantallas/espacio_de_trabajo.java</file>
-            <file>file:/Users/ignaciodominguez/Documents/proyectoUni/src/pantallas/pantallaEditarperfil.java</file>
->>>>>>> e05fa36babf26ce4904e0a5345bc9e2a9f3c1793
->>>>>>> 83fc8ffec3b3d8561a3941355dbb8c69590d5a55
-=======
-        <group>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/pantallaEditarperfil.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/pantallaConfiguracion.java</file>
->>>>>>> e798c87aa84f909cff0a8e2f7ba4acb2d28f544f
->>>>>>> 2e48242acd3b9f82c84b601fc84627efad9bbb4d
         </group>
     </open-files>
 </project-private>
