@@ -14,11 +14,7 @@ public class Conexion {
 	private String usuario = "postgres";
 	private String contrasenia = "postgres";
 	private Connection conexion = null;
-=======
-     */
-    private String usuario = "postgres";
-    private String contrasenia = "12345678";
-    private Connection conexion = null;
+
 
     public void crearConexion() throws Exception {
 
@@ -86,7 +82,6 @@ public class Conexion {
             return false;
         }
     }
->>>>>>> 4ab195bc516f0c64b53a545e90f41235a377d531
 	
 
 }
