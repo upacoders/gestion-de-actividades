@@ -11,7 +11,7 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/AgregarEspacioTrabajo.java</file>
             <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/espacio_de_trabajo.java</file>
@@ -27,6 +27,14 @@
             <file>file:/Users/ignaciodominguez/Documents/proyectoUni/src/pantallas/pantallaEditarperfil.java</file>
 >>>>>>> e05fa36babf26ce4904e0a5345bc9e2a9f3c1793
 >>>>>>> 83fc8ffec3b3d8561a3941355dbb8c69590d5a55
+=======
+        <group>
+            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/pantallaEditarperfil.java</file>
+            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/pantallaConfiguracion.java</file>
+>>>>>>> e798c87aa84f909cff0a8e2f7ba4acb2d28f544f
         </group>
+=======
+        <group/>
+>>>>>>> 7b9cc65122100705edfbf767e0f390b58d949793
     </open-files>
 </project-private>
