@@ -382,7 +382,7 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        newframe.setVisible(true);
+        newframe. setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarseActionPerformed
 
@@ -410,7 +410,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalidaMouseExited
 
     private void userMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMousePressed
-        if (user.getText().equals("ingrese su usuario")) {
+        if (user.getText().equals("ingrese su email")) {
             user.setText("");
             user.setForeground(Color.black);
         }
