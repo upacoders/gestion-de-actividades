@@ -10,7 +10,7 @@ public class Conexion {
         cambiar el numero de puerto al utilizado y el nombre de la base de datos.
         */
 	private String usuario = "postgres";
-	private String contrasenia = "12345678";
+	private String contrasenia = "postgres";
 	private Connection conexion = null;
 	
 
