@@ -142,12 +142,11 @@ public class Login extends javax.swing.JFrame {
         loginPanel.setForeground(new java.awt.Color(165, 200, 202));
 
         text4user.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-<<<<<<< HEAD
+
         text4user.setText("E-mail");
-=======
+
         text4user.setForeground(new java.awt.Color(255, 51, 51));
         text4user.setText("Usuario");
->>>>>>> 076292bb0736d0505c1dcd8a7d227a3acb5af63d
 
         text4password.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         text4password.setText("Contraseña");
