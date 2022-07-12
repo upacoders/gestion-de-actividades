@@ -45,8 +45,8 @@ public class dashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         partelateral = new javax.swing.JLabel();
+        jCalendar2 = new com.toedter.calendar.JCalendar();
 
         lblpartesup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partesuperior2.png"))); // NOI18N
 
@@ -199,11 +199,9 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, 430, 140));
 
-        jCalendar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 470, 210));
-
         partelateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
         jPanel1.add(partelateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, 460));
+        jPanel1.add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 430, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,7 +302,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
