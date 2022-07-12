@@ -48,6 +48,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         botonTrabajo3 = new javax.swing.JRadioButton();
         guardarBtn = new javax.swing.JButton();
         cancelarBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,6 +191,12 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
             }
         });
         add(cancelarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("+");
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 20, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonJefeEspacioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJefeEspacioActionPerformed
@@ -249,6 +256,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     private javax.swing.JButton cancelarBtn;
     private javax.swing.JButton guardarBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

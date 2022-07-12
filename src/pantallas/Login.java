@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
@@ -374,7 +376,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        pantallaRegistro newframe = new pantallaRegistro();
+        pantallaRegistro newframe = null;
+        try {
+            newframe = new pantallaRegistro();
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarseActionPerformed

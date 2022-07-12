@@ -16,7 +16,7 @@ public class PersonaJDBC {
 	/**
 	 * Constructor: cuando se instancia, se crea la conexion con la base de datos
 	 */
-	public PersonaJDBC() {
+	public PersonaJDBC() throws Exception {
 		this.con.crearConexion();
 
 		// se vuelve a tomar la conexi�n
@@ -91,7 +91,7 @@ public class PersonaJDBC {
 	{
 		String consultaSQL = "select id_persona from usuario where correo like '" 
 				+ correo + "' " + " and contrasea like '" + contrasenia + "'";
-		int id_usuario = 0;;
+		int id_usuario = 0;
 		
 		try {
 			Statement statement = null;
