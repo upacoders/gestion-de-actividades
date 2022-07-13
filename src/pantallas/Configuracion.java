@@ -202,10 +202,16 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        espacio_de_trabajo newFrame = new espacio_de_trabajo();
+        newFrame.setVisible (true);
+        this.dispose(); 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        dashboard newFrame = new dashboard();
+        newFrame.setVisible (true);
+        this.dispose(); 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
