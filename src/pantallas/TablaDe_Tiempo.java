@@ -31,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class LineaDe_Tiempo extends javax.swing.JFrame {
+public class TablaDe_Tiempo extends javax.swing.JFrame {
 
     /**
      * Creates new form espacio_de_trabajo
@@ -39,7 +39,7 @@ public class LineaDe_Tiempo extends javax.swing.JFrame {
     
     int xMouse,yMouse;
     
-    public LineaDe_Tiempo() {
+    public TablaDe_Tiempo() {
         initComponents();
         
     }
@@ -200,7 +200,7 @@ public class LineaDe_Tiempo extends javax.swing.JFrame {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 540));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel2.setText("Linea de Tiempo");
+        jLabel2.setText("Tabla de Tiempo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -257,11 +257,11 @@ public class LineaDe_Tiempo extends javax.swing.JFrame {
       
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","Paraguay12");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
             
             Statement st = con.createStatement();
             
-            String sql = "select * from login";
+            String sql = "select * from tarea";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -292,7 +292,7 @@ public class LineaDe_Tiempo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LineaDe_Tiempo().setVisible(true);
+                new TablaDe_Tiempo().setVisible(true);
             }
             
         });
