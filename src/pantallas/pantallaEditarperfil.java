@@ -25,10 +25,10 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnmenu = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         lblpartelat = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -44,6 +44,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -51,44 +52,40 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        btnmenu.setBackground(new java.awt.Color(227, 229, 215));
-        btnmenu.setForeground(new java.awt.Color(0, 0, 0));
-        btnmenu.setText("Menú");
-        btnmenu.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel6.setText("MENÚ");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(130, 150, 80, 24);
+
+        jButton7.setBackground(new java.awt.Color(204, 204, 204));
+        jButton7.setText("Espacios de trabajo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmenuActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnmenu);
-        btnmenu.setBounds(10, 170, 280, 30);
+        getContentPane().add(jButton7);
+        jButton7.setBounds(0, 190, 330, 23);
 
-        jButton1.setBackground(new java.awt.Color(227, 229, 215));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Ejercicios de trabajo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton8.setBackground(new java.awt.Color(204, 204, 204));
+        jButton8.setText("Dashboard");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(10, 210, 280, 30);
+        getContentPane().add(jButton8);
+        jButton8.setBounds(0, 230, 330, 23);
 
-        jButton2.setBackground(new java.awt.Color(227, 229, 215));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Dashboard");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(10, 250, 280, 30);
-
-        jButton3.setBackground(new java.awt.Color(227, 229, 215));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Configuración");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton9.setBackground(new java.awt.Color(204, 204, 204));
+        jButton9.setText("Configuraciones");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(10, 290, 280, 30);
+        getContentPane().add(jButton9);
+        jButton9.setBounds(0, 260, 330, 23);
 
         lblpartelat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
         getContentPane().add(lblpartelat);
@@ -106,7 +103,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(440, 610, 100, 32);
+        jButton4.setBounds(440, 610, 100, 23);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
@@ -120,7 +117,6 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
 
         jTextArea1.setBackground(new java.awt.Color(227, 229, 215));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -129,7 +125,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
 
         jButton5.setText("Editar Descripción");
         getContentPane().add(jButton5);
-        jButton5.setBounds(920, 560, 140, 32);
+        jButton5.setBounds(920, 560, 140, 23);
 
         jTextField1.setText("jimena.lezcano@upa.edu.py");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +134,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(1000, 330, 260, 24);
+        jTextField1.setBounds(1000, 330, 260, 20);
 
         jButton6.setText("Editar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -147,13 +143,13 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(1270, 230, 77, 32);
+        jButton6.setBounds(1270, 230, 77, 23);
         getContentPane().add(panel1);
         panel1.setBounds(450, 280, 300, 310);
 
         jTextField2.setText("Jimena Lezcano");
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(1000, 230, 260, 24);
+        jTextField2.setBounds(1000, 230, 260, 20);
 
         jPanel1.setBackground(new java.awt.Color(88, 104, 117));
         jPanel1.setForeground(new java.awt.Color(88, 104, 117));
@@ -170,12 +166,13 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1710, 120);
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setText("MENÚ");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 54, 24);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -185,17 +182,21 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnmenuActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,17 +234,18 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnmenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

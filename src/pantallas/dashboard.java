@@ -35,17 +35,18 @@ public class dashboard extends javax.swing.JFrame {
         lblnombrefirma = new javax.swing.JLabel();
         botonSalida = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblpartesup1 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         partelateral = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         lblpartesup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partesuperior2.png"))); // NOI18N
 
@@ -91,6 +92,10 @@ public class dashboard extends javax.swing.JFrame {
         lbltuerca.setMinimumSize(new java.awt.Dimension(50, 50));
         jPanel1.add(lbltuerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, -1));
 
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel2.setText("MENÚ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
+
         lblpartesup1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partesuperior2.png"))); // NOI18N
         jPanel1.add(lblpartesup1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, -1));
 
@@ -120,15 +125,6 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 320, -1));
-
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Menú");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 320, -1));
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(142, 155, 167));
@@ -199,7 +195,18 @@ public class dashboard extends javax.swing.JFrame {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, 430, 140));
 
         partelateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
+        partelateral.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+                partelateralAncestorResized(evt);
+            }
+        });
         jPanel1.add(partelateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, 460));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setText("MENÚ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,10 +238,6 @@ public class dashboard extends javax.swing.JFrame {
         //a
     }//GEN-LAST:event_botonSalidaMouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         VisualizacionDashboard newFrame = new VisualizacionDashboard();
         newFrame.setVisible (true);
@@ -257,6 +260,10 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void partelateralAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_partelateralAncestorResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partelateralAncestorResized
 
     /**
      * @param args the command line arguments
@@ -295,11 +302,12 @@ public class dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel botonSalida;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

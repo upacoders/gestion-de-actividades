@@ -38,19 +38,18 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         companyName = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        menuBtn = new javax.swing.JButton();
-        espacioDeTrabajoBtn = new javax.swing.JButton();
-        dashboardBtn = new javax.swing.JButton();
-        configuracionBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         agregarTablero = new javax.swing.JButton();
-        elegirTablero = new javax.swing.JComboBox<>();
         elegirEspacio = new javax.swing.JComboBox<>();
         agregarTablero1 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
+        elegirTablero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -103,8 +102,6 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -114,9 +111,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(companyName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 949, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28))
+                .addContainerGap(1027, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,69 +120,76 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
                     .addComponent(logo)
                     .addComponent(companyName))
                 .addContainerGap(20, Short.MAX_VALUE))
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1200, 70));
 
         jPanel4.setBackground(new java.awt.Color(165, 200, 202));
 
-        menuBtn.setBackground(new java.awt.Color(255, 255, 204));
-        menuBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        menuBtn.setText("MENU");
-        menuBtn.setBorder(null);
-        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setText("MENÚ");
 
-        espacioDeTrabajoBtn.setBackground(new java.awt.Color(255, 255, 204));
-        espacioDeTrabajoBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        espacioDeTrabajoBtn.setText("Espacio de Trabajo");
-        espacioDeTrabajoBtn.setBorder(null);
-        espacioDeTrabajoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton7.setBackground(new java.awt.Color(204, 204, 204));
+        jButton7.setText("Espacios de trabajo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        dashboardBtn.setBackground(new java.awt.Color(255, 255, 204));
-        dashboardBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        dashboardBtn.setText("Dashboard");
-        dashboardBtn.setBorder(null);
-        dashboardBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton6.setBackground(new java.awt.Color(204, 204, 204));
+        jButton6.setText("Dashboard");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
-        configuracionBtn.setBackground(new java.awt.Color(255, 255, 204));
-        configuracionBtn.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        configuracionBtn.setText("Configuracion");
-        configuracionBtn.setBorder(null);
-        configuracionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton8.setBackground(new java.awt.Color(204, 204, 204));
+        jButton8.setText("Configuraciones");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(espacioDeTrabajoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-            .addComponent(configuracionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-            .addComponent(dashboardBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(136, 136, 136))
+            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(espacioDeTrabajoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dashboardBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(configuracionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel5)
+                .addGap(16, 16, 16)
+                .addComponent(jButton7)
+                .addGap(17, 17, 17)
+                .addComponent(jButton6)
+                .addGap(17, 17, 17)
+                .addComponent(jButton8)
+                .addContainerGap(365, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 540));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 330, 540));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel2.setText("Espacio de Trabajo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Tableros");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
         agregarTablero.setBackground(new java.awt.Color(255, 255, 204));
         agregarTablero.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -199,11 +201,9 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
                 agregarTableroActionPerformed(evt);
             }
         });
-        jPanel1.add(agregarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 300, 30));
+        jPanel1.add(agregarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 300, 30));
 
-        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 300, 40));
-
-        jPanel1.add(elegirEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 300, 40));
+        jPanel1.add(elegirEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 300, 40));
 
         agregarTablero1.setBackground(new java.awt.Color(255, 255, 204));
         agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -235,6 +235,8 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         );
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
+
+        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,6 +286,18 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitBtnMouseClicked
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,21 +337,20 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     private javax.swing.JButton agregarTablero;
     private javax.swing.JButton agregarTablero1;
     private javax.swing.JLabel companyName;
-    private javax.swing.JButton configuracionBtn;
     private javax.swing.JPanel content;
-    private javax.swing.JButton dashboardBtn;
     private javax.swing.JComboBox<String> elegirEspacio;
     private javax.swing.JComboBox<String> elegirTablero;
-    private javax.swing.JButton espacioDeTrabajoBtn;
     private javax.swing.JLabel exitBtn;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel logo;
-    private javax.swing.JButton menuBtn;
     private javax.swing.JPanel panelOpcionesPantalla;
     // End of variables declaration//GEN-END:variables
 }
