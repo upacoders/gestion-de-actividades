@@ -144,10 +144,6 @@ public class Login extends javax.swing.JFrame {
         loginPanel.setForeground(new java.awt.Color(165, 200, 202));
 
         text4user.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-
-        text4user.setText("E-mail");
-
-        text4user.setForeground(new java.awt.Color(255, 51, 51));
         text4user.setText("Usuario");
 
         text4password.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -155,22 +151,14 @@ public class Login extends javax.swing.JFrame {
 
         forgotPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         forgotPassword.setText("¿Olvidó su contraseña?");
-        forgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 forgotPasswordMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                forgotPasswordMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                forgotPasswordMouseEntered(evt);
             }
         });
 
         registrarse.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registrarse.setText("Registrarse");
-        registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarseActionPerformed(evt);
@@ -179,7 +167,6 @@ public class Login extends javax.swing.JFrame {
 
         login.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         login.setText("Iniciar Sesión");
-        login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
@@ -203,22 +190,12 @@ public class Login extends javax.swing.JFrame {
                 userActionPerformed(evt);
             }
         });
-        user.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                userKeyPressed(evt);
-            }
-        });
 
         password.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         password.setText("********");
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passwordMousePressed(evt);
-            }
-        });
-        password.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwordKeyPressed(evt);
             }
         });
 
