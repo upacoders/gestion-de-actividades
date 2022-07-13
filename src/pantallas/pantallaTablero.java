@@ -128,6 +128,7 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti.setBorder(null);
         btnaggacti.setBorderPainted(false);
         btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         btnaggacti.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnaggactiMouseClicked(evt);
@@ -242,8 +243,8 @@ public class pantallaTablero extends javax.swing.JFrame {
             public void run() {
                 new pantallaTablero().setVisible(true);
             }
-        });
-    }
+        }); 
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaggacti;

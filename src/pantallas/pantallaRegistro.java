@@ -4,8 +4,11 @@
  */
 package Pantallas;
 
+import baseDatos.PersonaJDBC;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pantallas.Login;
 
@@ -14,10 +17,12 @@ import pantallas.Login;
  * @author user
  */
 public class pantallaRegistro extends javax.swing.JFrame {
+    private PersonaJDBC personaJDBC;
     /**
      * Creates new form pantallaRegistro
      */
-    public pantallaRegistro() {
+    public pantallaRegistro() throws Exception {
+        personaJDBC= new PersonaJDBC();
         initComponents();
     }
     
@@ -56,8 +61,6 @@ public class pantallaRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.darkGray);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -228,34 +231,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void btncontiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncontiActionPerformed
-        String nombre = txtnombre.getText();
-        String apellido = txtapellido.getText();
-        String correo = txtcorreo.getText();
-        String pass = txtpass.getText();
-        String repass = txtrepass.getText();
-        if (nombre.equals("")){
-             JOptionPane.showMessageDialog(this, "Ingrese su nombre para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-        }else{
-            if (apellido.equals("")){
-             JOptionPane.showMessageDialog(this, "Ingrese su apellido para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-            }else{
-                if (correo.equals("")){
-                JOptionPane.showMessageDialog(this, "Ingrese su correo para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if (pass.equals("")){
-                    JOptionPane.showMessageDialog(this, "Ingrese su contraseña para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                    }else{
-                        if (repass.equals("")){
-                        JOptionPane.showMessageDialog(this, "Ingrese de nuevo su contraseña para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);;
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Solicitud enviada correctamente, por favor verifíque su correo para confirmarlo");
-                        }
-                    }
-                }
-            }
-        }
-        
-        
+         crearCuenta(txtnombre.getText(), txtapellido.getText(), txtcorreo.getText(), txtpass.getText(), txtrepass.getText());        
     }//GEN-LAST:event_btncontiActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
@@ -268,7 +244,6 @@ public class pantallaRegistro extends javax.swing.JFrame {
 
     private void txtnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String nombre = txtnombre.getText();
              txtapellido.requestFocus();
         }
     }//GEN-LAST:event_txtnombreKeyPressed
@@ -299,59 +274,81 @@ public class pantallaRegistro extends javax.swing.JFrame {
 
     private void txtapellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String apellido = txtapellido.getText();
              txtcorreo.requestFocus();
         }
     }//GEN-LAST:event_txtapellidoKeyPressed
 
     private void txtcorreoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcorreoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String correo = txtcorreo.getText();
              txtpass.requestFocus();
         }
     }//GEN-LAST:event_txtcorreoKeyPressed
 
     private void txtpassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpassKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String pass = txtpass.getText();
              txtrepass.requestFocus();
         }
     }//GEN-LAST:event_txtpassKeyPressed
 
+    public boolean stringEstaVacio(String cadena) {
+		if (cadena.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
     private void txtrepassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrepassKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String repass = txtrepass.getText();
-            if (txtpass.getText().equals(repass)){
-                if (txtnombre.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Ingrese su nombre para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if (txtapellido.getText().equals("")){
-                    JOptionPane.showMessageDialog(this, "Ingrese su apellido para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                    }else{
-                        if (txtcorreo.getText().equals("")){
-                        JOptionPane.showMessageDialog(this, "Ingrese su correo para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                        }else{
-                            if (txtpass.getText().equals("")){
-                            JOptionPane.showMessageDialog(this, "Ingrese su contraseña para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);
-                            }else{
-                                if (txtrepass.getText().equals("")){
-                                JOptionPane.showMessageDialog(this, "Ingrese de nuevo su contraseña para continuar"," Fallo de creacion de cuenta",JOptionPane.ERROR_MESSAGE);;
-                                }else{
-                                    JOptionPane.showMessageDialog(null, "Solicitud enviada correctamente, por favor verifíque su correo para confirmarlo");
-                        }
-                    }
-                }
-            }
-        }
-                }else{
-                JOptionPane.showMessageDialog(null, "Las contraseñas no son iguales, reintente por favor");
-                txtpass.setText(null);
-                txtrepass.setText(null);
-                txtpass.requestFocus();
-            }
+            crearCuenta(txtnombre.getText(), txtapellido.getText(), txtcorreo.getText(), txtpass.getText(), txtrepass.getText());
+            
         }
     }//GEN-LAST:event_txtrepassKeyPressed
+    
+    public void crearCuenta(String nombre, String apellido, String correo, String pass,
+			String repass) {
+		// primero se debe verificar que ningun campo est� vacio
+		if (!stringEstaVacio(nombre) && !stringEstaVacio(apellido)
+				&& !stringEstaVacio(correo) && !stringEstaVacio(pass)
+				&& !stringEstaVacio(repass)) {
 
+			// se debe verificar que la contrase�a y la confirmacion de la contrase�a sean
+			// iguales
+			if (pass.equals(repass)) {
+				
+				// se debe verificar si existe ya una cuenta con el usuario e email recibidos
+				// como par�metro
+				if (!personaJDBC.cuentaYaRegistrada(correo)){
+
+					// se crea la cuenta
+					boolean registrado = personaJDBC.insert(nombre, apellido, correo, pass);
+
+					// si se pudo crear la cuenta, se cierra la pantalla
+					if (registrado) {
+						// se vuelve a mostrar el men� prinicipal 
+						Login login = new Login();
+						login.setVisible(true);
+                                                this.dispose();
+					}
+
+				} else // si ya existe algun cuenta con este usuario e email
+				{
+					JOptionPane.showMessageDialog(null,
+							"El usuario y/o correo ya pertenecen a otro usuario. No se puede continuar", "Error",
+							JOptionPane.ERROR_MESSAGE);
+
+					// No se puede continuar");
+				}
+			} else // si la contrase�a y la confirmaci�n de la contrase�a no coinciden
+			{
+				JOptionPane.showMessageDialog(null, "Las contrase�as no coinciden. Intente nuevamente", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} else // si alg�n campo est� vacio
+		{
+			JOptionPane.showMessageDialog(null, "Hay uno o m�s campos vacios. Verifique los datos", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
     /**
      * @param args the command line arguments
      */
@@ -382,7 +379,11 @@ public class pantallaRegistro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantallaRegistro().setVisible(true);
+                try {
+                    new pantallaRegistro().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(pantallaRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

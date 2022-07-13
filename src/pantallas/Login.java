@@ -5,9 +5,16 @@
 package pantallas;
 
 import Pantallas.pantallaRegistro;
+import baseDatos.Conexion;
+import java.sql.PreparedStatement;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
@@ -15,14 +22,21 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 /**
- *
+ *public void setScaletFoto(JLabel lblFoto, String rutaFoto) {
+        ImageIcon foto = new ImageIcon(rutaFoto);
+        Icon icono = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), 1));
+        lblFoto.setIcon(icono);
+    }
  * @author Lenovo
  */
 public class Login extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form Login
      */
+    private Connection conexion;
     int xMouse, yMouse;
     public Clip clip;
     public String ruta = "/sonidos/";
@@ -37,7 +51,6 @@ public class Login extends javax.swing.JFrame {
         }
         
     }
-
     public Login() {
         initComponents();
     }
@@ -47,6 +60,49 @@ public class Login extends javax.swing.JFrame {
         Icon icono = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), 1));
         lblFoto.setIcon(icono);
     }
+    
+    public boolean verificarUsuarioYContrasenia(String usuario, String contrasenia) {
+
+		try {
+			// se crea la consulta
+			String consultaSql = "Select count(*) as cantidad_registros from persona" + " where correo like '"
+					+ usuario + "'" + " and contrasea like '" + contrasenia + "'";
+			// System.out.println(consultaSql);
+			Statement statement = null;
+			statement = conexion.createStatement();
+			// se ejecuta la consulta y se guarda el resultado en un ResultSet
+			ResultSet resultSet = statement.executeQuery(consultaSql);
+			// se recorre todos los registros de los resultados de la consulta
+			while (resultSet.next()) // mientras exista un registro siguiente en el resultSet
+			{ // se verifica que hayan registros
+				if (resultSet.getInt("cantidad_registros") > 0) // si hay mas de 0 usuarios con este usuario y
+																// contrasenia
+				{
+					// se avisa que existe usuario con los datos recibidos como parametros
+					return true;
+				} else // si no existe ningun usuario con este usuario y contrase�a
+				{
+					return false;
+				}
+			}
+		} catch (Exception e) // si hay un error al ejecutar la consulta
+		{
+			e.printStackTrace();
+
+		}
+
+		// se cierra la conexion con la base de datos
+		try {
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		// si no se retorno true ni false, predeterminado se retorna false
+		return false;
+
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,22 +151,14 @@ public class Login extends javax.swing.JFrame {
 
         forgotPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         forgotPassword.setText("¿Olvidó su contraseña?");
-        forgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 forgotPasswordMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                forgotPasswordMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                forgotPasswordMouseEntered(evt);
             }
         });
 
         registrarse.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registrarse.setText("Registrarse");
-        registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarseActionPerformed(evt);
@@ -119,7 +167,6 @@ public class Login extends javax.swing.JFrame {
 
         login.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         login.setText("Iniciar Sesión");
-        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
@@ -132,7 +179,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         user.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        user.setText("ingrese su usuario");
+        user.setText("ingrese su email");
         user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 userMousePressed(evt);
@@ -143,22 +190,12 @@ public class Login extends javax.swing.JFrame {
                 userActionPerformed(evt);
             }
         });
-        user.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                userKeyPressed(evt);
-            }
-        });
 
         password.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         password.setText("********");
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passwordMousePressed(evt);
-            }
-        });
-        password.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwordKeyPressed(evt);
             }
         });
 
@@ -316,8 +353,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        pantallaRegistro newframe = new pantallaRegistro();
-        newframe.setVisible(true);
+        pantallaRegistro newframe = null;
+        try {
+            newframe = new pantallaRegistro();
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        newframe. setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarseActionPerformed
 
@@ -345,7 +387,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalidaMouseExited
 
     private void userMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMousePressed
-        if (user.getText().equals("ingrese su usuario")) {
+        if (user.getText().equals("ingrese su email")) {
             user.setText("");
             user.setForeground(Color.black);
         }
@@ -365,7 +407,7 @@ public class Login extends javax.swing.JFrame {
         }
 
         if (user.getText().isEmpty()) {
-            user.setText("Ingrese su usuario");
+            user.setText("Ingrese su email");
             user.setForeground(Color.gray);
         }
 
