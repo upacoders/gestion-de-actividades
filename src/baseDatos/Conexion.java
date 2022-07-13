@@ -1,6 +1,7 @@
 package baseDatos;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 //finanzas_personales
 public class Conexion {
@@ -10,13 +11,14 @@ public class Conexion {
     /*
         cambiar el numero de puerto al utilizado y el nombre de la base de datos.
 <<<<<<< HEAD
-        */
-	private String usuario = "postgres";
-	private String contrasenia = "12345678";
-	private Connection conexion = null;
-
+     */
+    private String usuario = "postgres";
+    private String contrasenia = "12345678";
+    private Connection conexion = null;
 
     public void crearConexion() throws Exception {
+        
+        
 
         try {
             // se define el driver a utilizar (postgresql) 
@@ -82,6 +84,4 @@ public class Conexion {
             return false;
         }
     }
-	
-
 }
