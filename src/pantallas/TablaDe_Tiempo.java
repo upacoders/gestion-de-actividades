@@ -57,7 +57,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         panelOpcionesPantalla = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -115,8 +114,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(88, 104, 117));
         jPanel3.setToolTipText("");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
-
         lblnombrefirma.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblnombrefirma.setText("Euclick");
 
@@ -135,13 +132,10 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
                 .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 929, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28))
+                .addContainerGap(1007, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -352,7 +346,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
