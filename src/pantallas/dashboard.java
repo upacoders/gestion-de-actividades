@@ -199,6 +199,13 @@ public class dashboard extends javax.swing.JFrame {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, 430, 140));
 
         partelateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
+        partelateral.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+                partelateralAncestorResized(evt);
+            }
+        });
         jPanel1.add(partelateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -257,6 +264,10 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void partelateralAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_partelateralAncestorResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partelateralAncestorResized
 
     /**
      * @param args the command line arguments
