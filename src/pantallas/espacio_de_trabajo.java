@@ -291,10 +291,16 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        dashboard newFrame = new dashboard();
+        newFrame.setVisible (true);
+        this.dispose(); 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Configuracion newFrame = new Configuracion();
+        newFrame.setVisible (true);
+        this.dispose(); 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
