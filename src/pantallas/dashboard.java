@@ -211,7 +211,7 @@ public class dashboard extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -236,11 +236,11 @@ public class dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Fecha inicio", "Fecha limite"
+                "Nombre", "Fecha inicio", "Fecha limite", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -357,7 +357,7 @@ public class dashboard extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             
-            String sql = "select * from accion";
+            String sql = "select * from accion a join estado e on e.id_estado = a.id_estado" ;
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -365,8 +365,9 @@ public class dashboard extends javax.swing.JFrame {
                 String Nombre = rs.getString("nombre_accion");
                 String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
                 String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                String nombre_estado = String.valueOf(rs.getString("nombre_estado"));
                 
-                String tbData[] = {Nombre,FechaI,FechaF};
+                String tbData[] = {Nombre,FechaI,FechaF, nombre_estado};
                 DefaultTableModel tblModel = (DefaultTableModel)jTable3.getModel();
                 
                 tblModel.addRow(tbData);
@@ -386,7 +387,7 @@ public class dashboard extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             
-            String sql = "select * from tarea";
+            String sql = "select * from tarea t join estado e on e.id_estado = t.id_estado";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -394,8 +395,9 @@ public class dashboard extends javax.swing.JFrame {
                 String Nombre = rs.getString("nombre_tarea");
                 String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
                 String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                String nombre_estado = String.valueOf(rs.getString("nombre_estado"));
                 
-                String tbData[] = {Nombre,FechaI,FechaF};
+                String tbData[] = {Nombre,FechaI,FechaF,nombre_estado};
                 DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
                 
                 tblModel.addRow(tbData);
