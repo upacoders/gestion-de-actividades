@@ -243,7 +243,7 @@ public class dashboard extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 90, 30));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Actividades");
@@ -270,7 +270,7 @@ public class dashboard extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 410, 110, 30));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 110, 30));
 
         jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Detalles");
@@ -285,7 +285,9 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,57 +335,11 @@ public class dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_partelateralAncestorResized
 
-<<<<<<< HEAD
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try{
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "Fecha inicio", "Fecha limite"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-            Statement st = con.createStatement();
-            
-            String sql = "select * from actividad";
-            ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-                
-                String Nombre = rs.getString("nombre_actividad");
-                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
-                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
-                
-                String tbData[] = {Nombre,FechaI,FechaF};
-                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-                
-                tblModel.addRow(tbData);
-            }
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-=======
->>>>>>> fc300423655913e1b039ad864c6a738c8ba537c0
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            
             jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -400,6 +356,7 @@ public class dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+            
             Statement st = con.createStatement();
             
             String sql = "select * from accion a join estado e on e.id_estado = a.id_estado" ;
@@ -460,7 +417,7 @@ public class dashboard extends javax.swing.JFrame {
                 String tbData[] = {Nombre,FechaI,FechaF,nombre_estado};
                 DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
                 
-                tblModel.addRow(tbData);                  
+                tblModel.addRow(tbData);
             }
             con.close();
             
@@ -471,7 +428,46 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Fecha inicio", "Fecha limite"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+            Statement st = con.createStatement();
+            
+            String sql = "select * from actividad";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+                String Nombre = rs.getString("nombre_actividad");
+                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
+                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                
+                String tbData[] = {Nombre,FechaI,FechaF};
+                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -481,13 +477,13 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        TablaDe_Tiempo_Acciones newFrame = new TablaDe_Tiempo_Acciones();
+        TablaDe_Tiempo_Tareas newFrame = new TablaDe_Tiempo_Tareas();
         newFrame.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        TablaDe_Tiempo_Tareas newFrame = new TablaDe_Tiempo_Tareas();
+        TablaDe_Tiempo_Acciones newFrame = new TablaDe_Tiempo_Acciones();
         newFrame.setVisible (true);
         this.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
@@ -533,10 +529,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton jButton4;
->>>>>>> fc300423655913e1b039ad864c6a738c8ba537c0
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

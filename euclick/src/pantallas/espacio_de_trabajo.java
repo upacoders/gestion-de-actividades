@@ -236,7 +236,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
 
-        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 300, 40));
+        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
