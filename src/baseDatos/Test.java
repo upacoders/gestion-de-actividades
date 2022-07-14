@@ -11,7 +11,7 @@ package baseDatos;
  */
 public class Test {
     public static AlertaJDBC alertaJDBC ;
-  public static void main (String args[]) throws Exception{
+    public static void main (String args[]) throws Exception{
       alertaJDBC = new AlertaJDBC();
         alertaJDBC.actualizarConfAlerta(3);
     }  
