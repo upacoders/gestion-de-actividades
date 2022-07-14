@@ -5,33 +5,12 @@
 package pantallas;
 
 import java.awt.BorderLayout;
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Lenovo
  */
-public class TablaDe_Tiempo extends javax.swing.JFrame {
+public class espacio_de_trabajo extends javax.swing.JFrame {
 
     /**
      * Creates new form espacio_de_trabajo
@@ -39,7 +18,7 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
     
     int xMouse,yMouse;
     
-    public TablaDe_Tiempo() {
+    public espacio_de_trabajo() {
         initComponents();
         
     }
@@ -57,18 +36,20 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         panelOpcionesPantalla = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        lblnombrefirma = new javax.swing.JLabel();
-        lbltuerca = new javax.swing.JLabel();
+        companyName = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        agregarTablero = new javax.swing.JButton();
+        elegirEspacio = new javax.swing.JComboBox<>();
+        agregarTablero1 = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
+        elegirTablero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -115,46 +96,40 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(88, 104, 117));
         jPanel3.setToolTipText("");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
+        companyName.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        companyName.setText("Euclick");
+        companyName.setToolTipText("");
 
-        lblnombrefirma.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        lblnombrefirma.setText("Euclick");
-
-        lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
-        lbltuerca.setText("jLabel1");
-        lbltuerca.setMaximumSize(new java.awt.Dimension(50, 50));
-        lbltuerca.setMinimumSize(new java.awt.Dimension(50, 50));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 929, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28))
+                .addGap(3, 3, 3)
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(companyName)
+                .addContainerGap(1027, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo)
+                    .addComponent(companyName))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 140));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1200, 70));
 
         jPanel4.setBackground(new java.awt.Color(165, 200, 202));
 
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setText("MENÚ");
+
+        jButton7.setBackground(new java.awt.Color(153, 153, 153));
         jButton7.setText("Espacios de trabajo");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,89 +153,123 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel1.setText("MENÚ");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(130, 130, 130))
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(136, 136, 136))
+            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel5)
+                .addGap(16, 16, 16)
                 .addComponent(jButton7)
-                .addGap(12, 12, 12)
+                .addGap(17, 17, 17)
                 .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
                 .addComponent(jButton8)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, 460));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 330, 540));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel2.setText("Espacio de Trabajo");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
 
-            },
-            new String [] {
-                "id", "Nombre", "FechaI", "FechaF"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel3.setText("Tableros");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 750, 340));
-
-        jButton1.setText("Refrescar Datos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        agregarTablero.setBackground(new java.awt.Color(255, 255, 204));
+        agregarTablero.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        agregarTablero.setText("+ Agregar Tablero");
+        agregarTablero.setBorder(null);
+        agregarTablero.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        agregarTablero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                agregarTableroActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 170, -1, -1));
+        jPanel1.add(agregarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 300, 30));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(142, 155, 167));
-        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Tabla de Tiempo");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jPanel1.add(elegirEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 300, 40));
+
+        agregarTablero1.setBackground(new java.awt.Color(255, 255, 204));
+        agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        agregarTablero1.setText("+ Agregar Espacio de Trabajo");
+        agregarTablero1.setToolTipText("");
+        agregarTablero1.setBorder(null);
+        agregarTablero1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        agregarTablero1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregarTablero1MouseClicked(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 460, 70));
+        agregarTablero1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarTablero1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(agregarTablero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 300, 30));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
+
+        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void agregarTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTableroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarTableroActionPerformed
+
+    private void agregarTablero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTablero1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarTablero1ActionPerformed
+
+    private void agregarTablero1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarTablero1MouseClicked
+        AgregarEspacioTrabajo eT = new AgregarEspacioTrabajo();
+        eT.setSize(540,470);
+        eT.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(eT, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_agregarTablero1MouseClicked
 
     private void panelOpcionesPantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOpcionesPantallaMousePressed
         xMouse = evt.getX();
@@ -277,90 +286,77 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitBtnMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
-      
-        try{
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
-            
-            Statement st = con.createStatement();
-            
-            String sql = "select * from tarea";
-            ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-                
-                String id = String.valueOf(rs.getInt("id_tarea"));
-                String Nombre = rs.getString("nombre_tarea");
-                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
-                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
-                
-                String tbData[] = {id,Nombre,FechaI,FechaF};
-                DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
-                
-                tblModel.addRow(tbData);
-            }
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        espacio_de_trabajo newFrame = new espacio_de_trabajo();
-        newFrame.setVisible (true);
-        this.dispose(); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dashboard newFrame = new dashboard();
         newFrame.setVisible (true);
         this.dispose(); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         Configuracion newFrame = new Configuracion();
         newFrame.setVisible (true);
         this.dispose(); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(espacio_de_trabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(espacio_de_trabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(espacio_de_trabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(espacio_de_trabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TablaDe_Tiempo().setVisible(true);
+                new espacio_de_trabajo().setVisible(true);
             }
-            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarTablero;
+    private javax.swing.JButton agregarTablero1;
+    private javax.swing.JLabel companyName;
+    private javax.swing.JPanel content;
+    private javax.swing.JComboBox<String> elegirEspacio;
+    private javax.swing.JComboBox<String> elegirTablero;
     private javax.swing.JLabel exitBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblnombrefirma;
-    private javax.swing.JLabel lbltuerca;
+    private javax.swing.JLabel logo;
     private javax.swing.JPanel panelOpcionesPantalla;
     // End of variables declaration//GEN-END:variables
 }

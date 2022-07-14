@@ -10,14 +10,4 @@
             </bookmark>
         </file>
     </editor-bookmarks>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/dashboard.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/baseDatos/Conexion.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/baseDatos/PersonaJDBC.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/baseDatos/Test.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/baseDatos/AlertaJDBC.java</file>
-            <file>file:/C:/Users/admin/Desktop/Git/gestion-de-actividades/src/pantallas/ConfiguracionTareasPorVencer.java</file>
-        </group>
-    </open-files>
 </project-private>
