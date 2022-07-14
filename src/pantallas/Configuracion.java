@@ -91,7 +91,7 @@ public class Configuracion extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(204, 204, 204));
+        jButton8.setBackground(new java.awt.Color(153, 153, 153));
         jButton8.setText("Configuraciones");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

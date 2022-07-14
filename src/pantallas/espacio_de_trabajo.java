@@ -129,7 +129,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel5.setText("MENÚ");
 
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
+        jButton7.setBackground(new java.awt.Color(153, 153, 153));
         jButton7.setText("Espacios de trabajo");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,7 +236,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
 
-        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 300, 40));
+        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
