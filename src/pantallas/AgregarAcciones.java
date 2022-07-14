@@ -5,8 +5,7 @@
  */
 package pantallas;
 
-import baseDatos.Conexion;
-import baseDatos.PersonaJDBC;
+import java.sql.DriverManager;
 import baseDatos.accionescon;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
