@@ -4,13 +4,23 @@
  */
 
 package pantallas;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.ImageIcon;
+import javax.swing.Icon;
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 
 /**
  *
  * @author user
  */
 public class pantallaEditarperfil extends javax.swing.JFrame {
-
+    
+        
+        
     /** Creates new form pantallaEditarperfil */
     public pantallaEditarperfil() {
         initComponents();
@@ -27,23 +37,19 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
 
         btnmenu = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        lblpartelat = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton5 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        panel1 = new java.awt.Panel();
-        jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        lblpartelat = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -73,6 +79,21 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 210, 280, 30);
 
+        jPanel1.setBackground(new java.awt.Color(88, 104, 117));
+        jPanel1.setForeground(new java.awt.Color(88, 104, 117));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel4.setText("Euclick");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+
+        lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
+        jPanel1.add(lbltuerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 70));
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1710, 150);
+
         jButton2.setBackground(new java.awt.Color(227, 229, 215));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Dashboard");
@@ -90,14 +111,10 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(10, 290, 280, 30);
 
-        lblpartelat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
-        getContentPane().add(lblpartelat);
-        lblpartelat.setBounds(0, 100, 330, 600);
-
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setText("Perfil");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(370, 160, 100, 40);
+        jLabel1.setBounds(370, 180, 100, 40);
 
         jButton4.setText("Editar Foto");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -106,69 +123,42 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(440, 610, 100, 32);
+        jButton4.setBounds(450, 530, 100, 32);
+
+        lblpartelat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
+        getContentPane().add(lblpartelat);
+        lblpartelat.setBounds(0, 70, 370, 710);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(910, 230, 80, 20);
+        jLabel2.setBounds(900, 330, 80, 20);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Correo");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(920, 330, 80, 16);
-
-        jTextArea1.setBackground(new java.awt.Color(227, 229, 215));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(910, 400, 370, 140);
-
-        jButton5.setText("Editar Descripción");
-        getContentPane().add(jButton5);
-        jButton5.setBounds(920, 560, 140, 32);
+        jLabel3.setBounds(910, 420, 80, 16);
 
         jTextField1.setText("jimena.lezcano@upa.edu.py");
+        jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(1000, 330, 260, 24);
-
-        jButton6.setText("Editar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(1270, 230, 77, 32);
-        getContentPane().add(panel1);
-        panel1.setBounds(450, 280, 300, 310);
+        jTextField1.setBounds(980, 410, 260, 30);
 
         jTextField2.setText("Jimena Lezcano");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(1000, 230, 260, 24);
-
-        jPanel1.setBackground(new java.awt.Color(88, 104, 117));
-        jPanel1.setForeground(new java.awt.Color(88, 104, 117));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel4.setText("Euclick");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
-
-        lbltuerca.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbltuerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotuerca.png"))); // NOI18N
-        jPanel1.add(lbltuerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 70));
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1710, 120);
+        jTextField2.setBounds(980, 320, 260, 30);
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(450, 310, 200, 190);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,15 +166,35 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+   
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+    String rutaimagen = null;
+    
+    FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png"); 
+    fileChooser.setFileFilter(imgFilter);
+
+    int result = fileChooser.showOpenDialog(this);
+
+    if (result != JFileChooser.CANCEL_OPTION) {
+
+        File fileName = fileChooser.getSelectedFile();
+
+        if ((fileName != null) || (fileName.getName().equals(""))) {
+            rutaimagen = fileName.getAbsolutePath();
+            
+        }  
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    setScaletFoto(jLabel5, rutaimagen);
+    }
+    public void setScaletFoto(JLabel jLabel5, String rutaimagen) {
+        ImageIcon foto = new ImageIcon(rutaimagen);
+        Icon icono = new ImageIcon(foto.getImage().getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), 1));
+        jLabel5.setIcon(icono);
+    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -197,6 +207,13 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmenuActionPerformed
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField2ActionPerformed
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -238,20 +255,16 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblpartelat;
     private javax.swing.JLabel lbltuerca;
-    private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 
     
