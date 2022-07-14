@@ -286,6 +286,23 @@ public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
             
+            jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Fecha inicio", "Fecha limite", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+            
             Statement st = con.createStatement();
             
             String sql = "select * from accion";
