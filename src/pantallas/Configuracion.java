@@ -5,6 +5,9 @@
  */
 package pantallas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author admin
@@ -149,6 +152,11 @@ public class Configuracion extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 204, 153));
         jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton4.setText("Editar Perfil");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,7 +202,7 @@ public class Configuracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        ConfiguracionTareasPorVencer newFrame = new ConfiguracionTareasPorVencer (); 
+        ConfiguracionTareasPorVencer newFrame = new ConfiguracionTareasPorVencer();
         newFrame.setVisible(true);
         this.dispose();
         // TODO add your handling code here:
@@ -202,21 +210,31 @@ public class Configuracion extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         espacio_de_trabajo newFrame = new espacio_de_trabajo();
-        newFrame.setVisible (true);
-        this.dispose(); 
+        newFrame.setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dashboard newFrame = new dashboard();
-        newFrame.setVisible (true);
-        this.dispose(); 
+        newFrame.setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            pantallaEditarperfil newFrame = new pantallaEditarperfil();
+            newFrame.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

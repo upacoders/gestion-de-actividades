@@ -37,7 +37,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","notevoyadecir0");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345");
             
             Statement st = con.createStatement();
             String sql = "select nombre, apellido, correo from persona where id_persona = " + Guardar_id.id ;
@@ -90,7 +90,6 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(227, 229, 215));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Ejercicios de trabajo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,13 +115,16 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 1710, 150);
 
         jButton2.setBackground(new java.awt.Color(227, 229, 215));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Dashboard");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(0, 250, 330, 30);
 
         jButton3.setBackground(new java.awt.Color(227, 229, 215));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Configuración");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +146,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(490, 530, 100, 32);
+        jButton4.setBounds(490, 530, 100, 22);
 
         lblpartelat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
         getContentPane().add(lblpartelat);
@@ -186,7 +188,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(1230, 610, 150, 32);
+        jButton5.setBounds(1230, 610, 150, 22);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Nombre");
@@ -206,7 +208,9 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        espacio_de_trabajo newFrame = new espacio_de_trabajo();
+        newFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     
    
@@ -238,7 +242,10 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
     }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Configuracion newFrame = new Configuracion();
+        newFrame.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -260,6 +267,12 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dashboard newFrame = new dashboard();
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     
     
