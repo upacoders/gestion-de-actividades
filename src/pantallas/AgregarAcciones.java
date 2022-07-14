@@ -7,6 +7,7 @@ package pantallas;
 
 import baseDatos.Conexion;
 import baseDatos.PersonaJDBC;
+import baseDatos.accionescon;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -22,29 +23,17 @@ import java.sql.*;
  */
 public class AgregarAcciones extends javax.swing.JFrame {
 
-    private Conexion con = new Conexion();
-    private Connection conexion;
-
     PreparedStatement ps = null;
-    Connection cn = con.getConexion();
+    Connection con = accionescon.conDB();
 
     /**
      * Creates new form AgregarAcciones
      */
     public AgregarAcciones() throws Exception {
-
         initComponents();
-        this.con.crearConexion();
-
-        // se vuelve a tomar la conexi�n
-        this.conexion = con.getConexion();
     }
 
     DefaultListModel dm = new DefaultListModel();
-
-    private void add(String nombreAcc) {
-
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -113,15 +102,14 @@ public class AgregarAcciones extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(fldAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(fldAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addComponent(fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(fechaLim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,18 +124,20 @@ public class AgregarAcciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
+        try {
+            String sql = "insert into acciones (nombre_accion, fecha_inicio, fecha_limite) Values (?,?,?)";
 
-//        ps = new preparedStatement();
-//        try {
-//          //  Statement statement = null;
-//          //  statement = conexion.createStatement();
-//            String sql = "insert into accion (nombre_accion, fecha_inicio, fecha_limite, id_estado, id_actividad, nombre_actividad) Values (?,?,?,?,?,?)";
-//
-//            ps = cn.preparedStatement(sql);
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+            ps = con.prepareStatement(sql);
+            ps.setString(1, fldAccion.getText());
+            ps.setString(2, fechaInicio.getDate().toString());
+            ps.setString(3, fechaLim.getDate().toString());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "datos guardados");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed

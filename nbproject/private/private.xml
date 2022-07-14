@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Pantallas/pantallaRegistro.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>20</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/Users/ferallende/Desktop/Euclick/src/baseDatos/Conexion.java</file>
-=======
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/Login.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/baseDatos/Conexion.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/dashboard.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/baseDatos/PersonaJDBC.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/Euclick2/src/pantallas/pantallaRegistro.java</file>
->>>>>>> 3b31f3bb70f7249d578f6d913e38be67e432f545
+            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/pantallaTablero.java</file>
+            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/TablaDe_Tiempo.java</file>
+            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/baseDatos/accionescon.java</file>
+            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/estadopantallatablero.java</file>
+            <file>file:/C:/Users/ricar/Desktop/Euclick/gestion-de-actividades/src/pantallas/AgregarAcciones.java</file>
         </group>
     </open-files>
 </project-private>

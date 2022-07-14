@@ -43,11 +43,11 @@ public class pantallaTablero extends javax.swing.JFrame {
         lblevaluaciones = new javax.swing.JLabel();
         lblacciones = new javax.swing.JLabel();
         panelpendientes = new javax.swing.JScrollPane();
-        listpendientes = new javax.swing.JList<>();
+        listPendientes = new javax.swing.JList<>();
         panelenproceso = new javax.swing.JScrollPane();
-        listaenproceso = new javax.swing.JList<>();
-        panelfinaladas = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listEnProceso = new javax.swing.JList<>();
+        panelTerminadas = new javax.swing.JScrollPane();
+        listTerminadas = new javax.swing.JList<>();
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,7 +128,6 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti.setBorder(null);
         btnaggacti.setBorderPainted(false);
         btnaggacti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
         btnaggacti.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnaggactiMouseClicked(evt);
@@ -151,15 +150,20 @@ public class pantallaTablero extends javax.swing.JFrame {
 
         panelpendientes.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        listpendientes.setModel(new javax.swing.AbstractListModel<String>() {
+        listPendientes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pendiente", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        listpendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        listpendientes.setName(""); // NOI18N
-        panelpendientes.setViewportView(listpendientes);
-        listpendientes.getAccessibleContext().setAccessibleDescription("");
+        listPendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        listPendientes.setName(""); // NOI18N
+        listPendientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listPendientesMouseClicked(evt);
+            }
+        });
+        panelpendientes.setViewportView(listPendientes);
+        listPendientes.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(panelpendientes);
         panelpendientes.setBounds(360, 500, 460, 120);
@@ -167,28 +171,38 @@ public class pantallaTablero extends javax.swing.JFrame {
         panelenproceso.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         panelenproceso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        listaenproceso.setModel(new javax.swing.AbstractListModel<String>() {
+        listEnProceso.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "En proceso", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        panelenproceso.setViewportView(listaenproceso);
+        listEnProceso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listEnProcesoMouseClicked(evt);
+            }
+        });
+        panelenproceso.setViewportView(listEnProceso);
 
         getContentPane().add(panelenproceso);
         panelenproceso.setBounds(360, 240, 460, 120);
 
-        panelfinaladas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        panelTerminadas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listTerminadas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Terminadas", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelfinaladas.setViewportView(jList1);
+        listTerminadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        listTerminadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listTerminadasMouseClicked(evt);
+            }
+        });
+        panelTerminadas.setViewportView(listTerminadas);
 
-        getContentPane().add(panelfinaladas);
-        panelfinaladas.setBounds(360, 370, 460, 120);
+        getContentPane().add(panelTerminadas);
+        panelTerminadas.setBounds(360, 370, 460, 120);
         getContentPane().add(content);
         content.setBounds(860, 190, 540, 470);
 
@@ -209,6 +223,30 @@ public class pantallaTablero extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnaggactiMouseClicked
+
+    private void listEnProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listEnProcesoMouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_listEnProcesoMouseClicked
+
+    private void listTerminadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listTerminadasMouseClicked
+        // TODO add your handling code here
+        
+        
+        
+        
+    }//GEN-LAST:event_listTerminadasMouseClicked
+
+    private void listPendientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPendientesMouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_listPendientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -253,7 +291,6 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
@@ -261,10 +298,11 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JLabel lblpartelat;
     private javax.swing.JLabel lblpartesup;
     private javax.swing.JLabel lbltuerca;
-    private javax.swing.JList<String> listaenproceso;
-    private javax.swing.JList<String> listpendientes;
+    private javax.swing.JList<String> listEnProceso;
+    private javax.swing.JList<String> listPendientes;
+    private javax.swing.JList<String> listTerminadas;
+    private javax.swing.JScrollPane panelTerminadas;
     private javax.swing.JScrollPane panelenproceso;
-    private javax.swing.JScrollPane panelfinaladas;
     private javax.swing.JScrollPane panelpendientes;
     // End of variables declaration//GEN-END:variables
 
