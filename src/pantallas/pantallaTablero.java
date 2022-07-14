@@ -157,11 +157,6 @@ public class pantallaTablero extends javax.swing.JFrame {
         });
         listPendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listPendientes.setName(""); // NOI18N
-        listPendientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listPendientesMouseClicked(evt);
-            }
-        });
         panelpendientes.setViewportView(listPendientes);
         listPendientes.getAccessibleContext().setAccessibleDescription("");
 
@@ -176,11 +171,6 @@ public class pantallaTablero extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        listEnProceso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listEnProcesoMouseClicked(evt);
-            }
-        });
         panelenproceso.setViewportView(listEnProceso);
 
         getContentPane().add(panelenproceso);
@@ -194,11 +184,6 @@ public class pantallaTablero extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         listTerminadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        listTerminadas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listTerminadasMouseClicked(evt);
-            }
-        });
         panelTerminadas.setViewportView(listTerminadas);
 
         getContentPane().add(panelTerminadas);
@@ -223,30 +208,6 @@ public class pantallaTablero extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnaggactiMouseClicked
-
-    private void listEnProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listEnProcesoMouseClicked
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_listEnProcesoMouseClicked
-
-    private void listTerminadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listTerminadasMouseClicked
-        // TODO add your handling code here
-        
-        
-        
-        
-    }//GEN-LAST:event_listTerminadasMouseClicked
-
-    private void listPendientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPendientesMouseClicked
-        // TODO add your handling code here:
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_listPendientesMouseClicked
 
     /**
      * @param args the command line arguments
