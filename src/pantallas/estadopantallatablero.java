@@ -35,8 +35,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         nombreProyecto = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        miembroProyecto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         botonJefeEspacio = new javax.swing.JRadioButton();
@@ -81,17 +79,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
         nombreProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreProyectoActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel2.setText("Descripcion de la actividad");
-
-        miembroProyecto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        miembroProyecto.setText("Describir la actividad");
-        miembroProyecto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miembroProyectoActionPerformed(evt);
             }
         });
 
@@ -165,10 +152,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
                                     .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(miembroProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(64, 64, 64)
                                 .addComponent(botonJefeEspacio1))
@@ -207,11 +190,7 @@ public class estadopantallatablero extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(miembroProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -266,10 +245,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreProyectoActionPerformed
 
-    private void miembroProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miembroProyectoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miembroProyectoActionPerformed
-
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
         // TODO add your handling code here:
         
@@ -292,7 +267,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -300,7 +274,6 @@ public class estadopantallatablero extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField miembroProyecto;
     private javax.swing.JTextField nombreProyecto;
     // End of variables declaration//GEN-END:variables
 }
