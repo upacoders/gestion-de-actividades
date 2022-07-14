@@ -30,13 +30,13 @@ public class pantallaTablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         labelusuario = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
-        btnmenu = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         lblpartesup = new javax.swing.JLabel();
         lblpartelat = new javax.swing.JLabel();
         btnaggacti = new javax.swing.JButton();
@@ -56,6 +56,41 @@ public class pantallaTablero extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setText("MENÚ");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(130, 150, 70, 24);
+
+        jButton7.setBackground(new java.awt.Color(204, 204, 204));
+        jButton7.setText("Espacios de trabajo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7);
+        jButton7.setBounds(0, 190, 330, 23);
+
+        jButton6.setBackground(new java.awt.Color(204, 204, 204));
+        jButton6.setText("Dashboard");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(0, 230, 330, 23);
+
+        jButton8.setBackground(new java.awt.Color(204, 204, 204));
+        jButton8.setText("Configuraciones");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8);
+        jButton8.setBounds(0, 270, 330, 23);
+
         labelusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
         getContentPane().add(labelusuario);
         labelusuario.setBounds(1260, 70, 55, 55);
@@ -72,47 +107,6 @@ public class pantallaTablero extends javax.swing.JFrame {
         lblnombrefirma.setText("Euclick");
         getContentPane().add(lblnombrefirma);
         lblnombrefirma.setBounds(80, 50, 148, 45);
-
-        btnmenu.setBackground(new java.awt.Color(255, 255, 204));
-        btnmenu.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        btnmenu.setText("Menú");
-        btnmenu.setAlignmentX(0.5F);
-        btnmenu.setBorder(null);
-        btnmenu.setBorderPainted(false);
-        btnmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnmenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnmenu.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        getContentPane().add(btnmenu);
-        btnmenu.setBounds(10, 160, 310, 40);
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 204));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setText("Ejercicios de trabajo");
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(10, 205, 310, 40);
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 204));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton2.setText("Dashboard");
-        jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jButton2);
-        jButton2.setBounds(10, 247, 310, 40);
-
-        jButton3.setBackground(new java.awt.Color(255, 255, 204));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton3.setText("Configuración");
-        jButton3.setBorderPainted(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jButton3);
-        jButton3.setBounds(10, 289, 310, 40);
 
         lblpartesup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partesuperior2.png"))); // NOI18N
         getContentPane().add(lblpartesup);
@@ -194,10 +188,6 @@ public class pantallaTablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
         estadopantallatablero pT = new estadopantallatablero();
         pT.setSize(540,470);
@@ -208,6 +198,18 @@ public class pantallaTablero extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnaggactiMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +249,12 @@ public class pantallaTablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaggacti;
-    private javax.swing.JButton btnmenu;
     private javax.swing.JPanel content;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
