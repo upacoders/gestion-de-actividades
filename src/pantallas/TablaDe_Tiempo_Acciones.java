@@ -31,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class TablaDe_Tiempo extends javax.swing.JFrame {
+public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
 
     /**
      * Creates new form espacio_de_trabajo
@@ -39,7 +39,7 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
     
     int xMouse,yMouse;
     
-    public TablaDe_Tiempo() {
+    public TablaDe_Tiempo_Acciones() {
         initComponents();
         
     }
@@ -57,7 +57,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         panelOpcionesPantalla = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -115,8 +114,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(88, 104, 117));
         jPanel3.setToolTipText("");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
-
         lblnombrefirma.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblnombrefirma.setText("Euclick");
 
@@ -135,13 +132,10 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
                 .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 929, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28))
+                .addContainerGap(1007, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -219,12 +213,20 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Nombre", "FechaI", "FechaF"
+                "id", "Nombre", "FechaI", "FechaF", "Estado", "Nombre de Actividad"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 750, 340));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 840, 340));
 
         jButton1.setText("Refrescar Datos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +240,7 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(142, 155, 167));
         jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Tabla de Tiempo");
+        jTextField1.setText("Tabla de Tiempo Acciones");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -286,7 +288,7 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             
-            String sql = "select * from tarea";
+            String sql = "select * from accion";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -295,8 +297,11 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
                 String Nombre = rs.getString("nombre_tarea");
                 String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
                 String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                String Estado = String.valueOf(rs.getInt("id_estado"));
+                String Actividad = rs.getString("nombre_actividad");
                 
-                String tbData[] = {id,Nombre,FechaI,FechaF};
+                
+                String tbData[] = {id,Nombre,FechaI,FechaF,Estado,Actividad};
                 DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
                 
                 tblModel.addRow(tbData);
@@ -339,7 +344,7 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TablaDe_Tiempo().setVisible(true);
+                new TablaDe_Tiempo_Acciones().setVisible(true);
             }
             
         });
@@ -352,7 +357,6 @@ public class TablaDe_Tiempo extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
