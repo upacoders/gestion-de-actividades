@@ -120,6 +120,10 @@ public class PersonaJDBC {
 	 * @param email
 	 * @return
 	 */
+        
+        
+        
+        
 	public boolean cuentaYaRegistrada(String email) {
 		// se crea la consulta sql para verificar si ya hay un usuario con el email y
 		// usuario recibidos
