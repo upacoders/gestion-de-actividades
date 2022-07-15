@@ -4,7 +4,12 @@
  */
 package pantallas;
 
+import baseDatos.Guardar_id;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -46,7 +51,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         agregarTablero = new javax.swing.JButton();
-        elegirEspacio = new javax.swing.JComboBox<>();
+        JCombo = new javax.swing.JComboBox<>();
         agregarTablero1 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         elegirTablero = new javax.swing.JComboBox<>();
@@ -203,7 +208,13 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         });
         jPanel1.add(agregarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 300, 30));
 
-        jPanel1.add(elegirEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 300, 40));
+        JCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona espacio de trabajo" }));
+        JCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JComboActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 290, 40));
 
         agregarTablero1.setBackground(new java.awt.Color(255, 255, 204));
         agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -236,7 +247,7 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
 
-        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 300, 40));
+        jPanel1.add(elegirTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 290, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,6 +315,28 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void JComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboActionPerformed
+         
+        
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345");
+            
+            Statement st = con.createStatement();
+            String sql = "select nombre_espacio_trabajo from espacio_trabajo et join persona_espacio_trabajo pet on pet.id_espacio_trabajo = et.id_espacio_trabajo where pet.id_persona = " + Guardar_id.id ;
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                JCombo.setName(rs.getString("nombre_espacio_trabajo"));
+                
+            }
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_JComboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -340,11 +373,11 @@ public class espacio_de_trabajo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JCombo;
     private javax.swing.JButton agregarTablero;
     private javax.swing.JButton agregarTablero1;
     private javax.swing.JLabel companyName;
     private javax.swing.JPanel content;
-    private javax.swing.JComboBox<String> elegirEspacio;
     private javax.swing.JComboBox<String> elegirTablero;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JButton jButton6;
