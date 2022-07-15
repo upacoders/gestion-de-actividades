@@ -355,7 +355,7 @@ public class Login extends javax.swing.JFrame {
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345");
             
             Statement st = con.createStatement();
             
@@ -366,7 +366,7 @@ public class Login extends javax.swing.JFrame {
                 Guardar_id guardar_id = new Guardar_id(id);
                 sonido("sonidointro");
                 javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                pantallaEditarperfil newFrame = new pantallaEditarperfil();
+                espacio_de_trabajo newFrame = new espacio_de_trabajo();
                 newFrame.setVisible(true);
                 this.dispose();
             }else{
