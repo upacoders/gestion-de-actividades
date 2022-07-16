@@ -5,7 +5,7 @@ import java.sql.*;
 //finanzas_personales
 public class Conexion {
 
-    private String url = "jdbc:postgresql://localhost:5433/Euclick";
+    private String url = "jdbc:postgresql://localhost:5432/Euclick";
 
     /*
         cambiar el numero de puerto al utilizado y el nombre de la base de datos.
