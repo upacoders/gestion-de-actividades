@@ -282,9 +282,11 @@ public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             
       
+        
+        
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345");
             
             jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
