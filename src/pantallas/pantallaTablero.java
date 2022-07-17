@@ -6,6 +6,8 @@
 package Pantallas;
 
 import java.awt.BorderLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pantallas.AgregarEspacioTrabajo;
 import pantallas.espacio_de_trabajo;
 import pantallas.estadopantallatablero;
@@ -189,7 +191,12 @@ public class pantallaTablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
-        estadopantallatablero pT = new estadopantallatablero();
+        estadopantallatablero pT = null;
+        try {
+            pT = new estadopantallatablero();
+        } catch (Exception ex) {
+            Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
         pT.setSize(540,470);
         pT.setLocation(0,0);
         
