@@ -4,19 +4,27 @@
  */
 package pantallas;
 
+import baseDatos.ActividadesJDBC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author keigo
  */
 public class estadopantallatablero extends javax.swing.JPanel {
-
+    String nombre;
+    String fechainicio;
+    String fechalimite;
+    String estado;
+    SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
+    ActividadesJDBC actividadesjdbc;
     /**
      * Creates new form estadopantallatablero
      */
-    public estadopantallatablero() {
+    public estadopantallatablero() throws Exception {
+        actividadesjdbc = new ActividadesJDBC();
         initComponents();
     }
 
@@ -34,20 +42,20 @@ public class estadopantallatablero extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        nombreProyecto = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        botonJefeEspacio = new javax.swing.JRadioButton();
+        rdenproceso = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
-        botonJefeEspacio1 = new javax.swing.JRadioButton();
+        rdpendientes = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        botonJefeEspacio2 = new javax.swing.JRadioButton();
-        guardarBtn = new javax.swing.JButton();
+        rdfinalizadas = new javax.swing.JRadioButton();
+        btnguardar = new javax.swing.JButton();
         cancelarBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
-        jDateChooser4 = new com.toedter.calendar.JDateChooser();
+        cldinicio = new com.toedter.calendar.JDateChooser();
+        cldlimite = new com.toedter.calendar.JDateChooser();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -74,11 +82,11 @@ public class estadopantallatablero extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setText("Nombre de la actividad");
 
-        nombreProyecto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        nombreProyecto.setText("Agregar nombre de la actividad");
-        nombreProyecto.addActionListener(new java.awt.event.ActionListener() {
+        txtnombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        txtnombre.setText("Agregar nombre de la actividad");
+        txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreProyectoActionPerformed(evt);
+                txtnombreActionPerformed(evt);
             }
         });
 
@@ -88,34 +96,34 @@ public class estadopantallatablero extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel5.setText("En proceso");
 
-        botonJefeEspacio.addActionListener(new java.awt.event.ActionListener() {
+        rdenproceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonJefeEspacioActionPerformed(evt);
+                rdenprocesoActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setText("Pendientes");
 
-        botonJefeEspacio1.addActionListener(new java.awt.event.ActionListener() {
+        rdpendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonJefeEspacio1ActionPerformed(evt);
+                rdpendientesActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel7.setText("Finalizadas");
 
-        botonJefeEspacio2.addActionListener(new java.awt.event.ActionListener() {
+        rdfinalizadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonJefeEspacio2ActionPerformed(evt);
+                rdfinalizadasActionPerformed(evt);
             }
         });
 
-        guardarBtn.setText("Guardar");
-        guardarBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarBtnActionPerformed(evt);
+                btnguardarActionPerformed(evt);
             }
         });
 
@@ -139,38 +147,38 @@ public class estadopantallatablero extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel10))
+                            .addGap(157, 157, 157)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                                    .addComponent(nombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(157, 157, 157)
-                                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64)
-                                .addComponent(botonJefeEspacio1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(botonJefeEspacio2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(botonJefeEspacio))))
-                        .addGap(45, 45, 45))
+                                    .addComponent(cldlimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cldinicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148))))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(rdpendientes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(rdfinalizadas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(rdenproceso))))
+                .addGap(45, 45, 45))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -178,7 +186,7 @@ public class estadopantallatablero extends javax.swing.JPanel {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(320, 320, 320)
-                            .addComponent(guardarBtn)
+                            .addComponent(btnguardar)
                             .addGap(18, 18, 18)
                             .addComponent(cancelarBtn)))
                     .addGap(0, 0, Short.MAX_VALUE)))
@@ -188,30 +196,30 @@ public class estadopantallatablero extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cldinicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
-                    .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cldlimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(botonJefeEspacio))
+                    .addComponent(rdenproceso))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(botonJefeEspacio1))
+                    .addComponent(rdpendientes))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(botonJefeEspacio2))
+                    .addComponent(rdfinalizadas))
                 .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -219,52 +227,53 @@ public class estadopantallatablero extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(390, 390, 390)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(guardarBtn)
+                        .addComponent(btnguardar)
                         .addComponent(cancelarBtn))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonJefeEspacioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJefeEspacioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonJefeEspacioActionPerformed
+    private void rdenprocesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdenprocesoActionPerformed
+        estado = "en proceso";
+    }//GEN-LAST:event_rdenprocesoActionPerformed
 
-    private void botonJefeEspacio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJefeEspacio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonJefeEspacio1ActionPerformed
+    private void rdpendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdpendientesActionPerformed
+        estado = "pendiente";
+    }//GEN-LAST:event_rdpendientesActionPerformed
 
-    private void botonJefeEspacio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJefeEspacio2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonJefeEspacio2ActionPerformed
+    private void rdfinalizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdfinalizadasActionPerformed
+        estado = "finalizada";
+    }//GEN-LAST:event_rdfinalizadasActionPerformed
 
     private void cancelarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarBtnMouseClicked
         setVisible(false);
     }//GEN-LAST:event_cancelarBtnMouseClicked
 
-    private void nombreProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProyectoActionPerformed
+    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreProyectoActionPerformed
+    }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-        // TODO add your handling code here:
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        nombre = txtnombre.getText();
+        fechainicio = sdf.format(cldinicio.getDate());
+        fechalimite = sdf.format(cldlimite.getDate());
+        int id_estado = actividadesjdbc.Idestado(estado);
+        actividadesjdbc.insert(nombre, fechainicio, fechalimite, id_estado);
         
         
         
         
         
-    }//GEN-LAST:event_guardarBtnActionPerformed
+    }//GEN-LAST:event_btnguardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton botonJefeEspacio;
-    private javax.swing.JRadioButton botonJefeEspacio1;
-    private javax.swing.JRadioButton botonJefeEspacio2;
+    private javax.swing.JButton btnguardar;
     private javax.swing.JButton cancelarBtn;
-    private javax.swing.JButton guardarBtn;
+    private com.toedter.calendar.JDateChooser cldinicio;
+    private com.toedter.calendar.JDateChooser cldlimite;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
-    private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
@@ -274,6 +283,9 @@ public class estadopantallatablero extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nombreProyecto;
+    private javax.swing.JRadioButton rdenproceso;
+    private javax.swing.JRadioButton rdfinalizadas;
+    private javax.swing.JRadioButton rdpendientes;
+    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }

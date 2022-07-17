@@ -15,7 +15,7 @@ import pantallas.estadopantallatablero;
  * @author user
  */
 public class pantallaTablero extends javax.swing.JFrame {
-
+estadopantallatablero estadopantallatablero;
     /** Creates new form pantallaEditarperfil */
     public pantallaTablero() {
         initComponents();
@@ -189,7 +189,7 @@ public class pantallaTablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
-        estadopantallatablero pT = new estadopantallatablero();
+        estadopantallatablero pT = estadopantallatablero();
         pT.setSize(540,470);
         pT.setLocation(0,0);
         
@@ -269,5 +269,9 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelenproceso;
     private javax.swing.JScrollPane panelpendientes;
     // End of variables declaration//GEN-END:variables
+
+    private estadopantallatablero estadopantallatablero() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
