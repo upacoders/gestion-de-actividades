@@ -360,7 +360,7 @@ public espacio_de_trabajo() {
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
             
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
