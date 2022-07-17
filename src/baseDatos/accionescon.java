@@ -19,7 +19,7 @@ public class accionescon {
         try {
             Class.forName("org.postgresql.Driver");
             String usuario = "postgres";
-            String pass = "postgres";
+            String pass = "12345678";
             String url = "jdbc:postgresql://localhost:5432/Euclick";
             Connection con = DriverManager.getConnection(usuario, pass, url);
 
