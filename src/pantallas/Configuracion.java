@@ -137,9 +137,10 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel2.setName(""); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(400, 40));
 
-        jButton5.setBackground(new java.awt.Color(154, 213, 161));
+        jButton5.setBackground(new java.awt.Color(148, 180, 159));
         jButton5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton5.setText("Tareas a punto de vencer");
+        jButton5.setPreferredSize(new java.awt.Dimension(123, 29));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -149,7 +150,7 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel3.setText("Configuración del Perfil");
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 153));
+        jButton4.setBackground(new java.awt.Color(236, 179, 144));
         jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton4.setText("Editar Perfil");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +176,7 @@ public class Configuracion extends javax.swing.JFrame {
                         .addGap(115, 115, 115)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(159, 159, 159))))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );

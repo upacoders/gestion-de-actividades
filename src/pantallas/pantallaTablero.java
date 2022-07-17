@@ -6,6 +6,8 @@
 package Pantallas;
 
 import java.awt.BorderLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pantallas.AgregarEspacioTrabajo;
 import pantallas.espacio_de_trabajo;
 import pantallas.estadopantallatablero;
@@ -189,7 +191,16 @@ estadopantallatablero estadopantallatablero;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
+<<<<<<< HEAD
         estadopantallatablero pT = estadopantallatablero();
+=======
+        estadopantallatablero pT = null;
+        try {
+            pT = new estadopantallatablero();
+        } catch (Exception ex) {
+            Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
         pT.setSize(540,470);
         pT.setLocation(0,0);
         

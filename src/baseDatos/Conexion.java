@@ -12,7 +12,11 @@ public class Conexion {
 <<<<<<< HEAD
         */
 	private String usuario = "postgres";
+<<<<<<< HEAD
 	private String contrasenia = "Keigomitsui77";
+=======
+	private String contrasenia = "postgres";
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
 	private Connection conexion = null;
 
 

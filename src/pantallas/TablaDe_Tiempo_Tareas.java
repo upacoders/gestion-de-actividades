@@ -54,9 +54,8 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelOpcionesPantalla = new javax.swing.JPanel();
-        exitBtn = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        exitBtn = new javax.swing.JLabel();
         lblnombrefirma = new javax.swing.JLabel();
         lbltuerca = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -76,15 +75,9 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelOpcionesPantalla.setBackground(new java.awt.Color(88, 104, 117));
-        panelOpcionesPantalla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelOpcionesPantallaMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                panelOpcionesPantallaMouseReleased(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(88, 104, 117));
+        jPanel3.setForeground(new java.awt.Color(88, 104, 117));
+        jPanel3.setToolTipText("");
 
         exitBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         exitBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,25 +87,6 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
                 exitBtnMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout panelOpcionesPantallaLayout = new javax.swing.GroupLayout(panelOpcionesPantalla);
-        panelOpcionesPantalla.setLayout(panelOpcionesPantallaLayout);
-        panelOpcionesPantallaLayout.setHorizontalGroup(
-            panelOpcionesPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcionesPantallaLayout.createSequentialGroup()
-                .addGap(0, 1169, Short.MAX_VALUE)
-                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelOpcionesPantallaLayout.setVerticalGroup(
-            panelOpcionesPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelOpcionesPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 20));
-
-        jPanel3.setBackground(new java.awt.Color(88, 104, 117));
-        jPanel3.setForeground(new java.awt.Color(88, 104, 117));
-        jPanel3.setToolTipText("");
 
         lblnombrefirma.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblnombrefirma.setText("Euclick");
@@ -132,19 +106,23 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
                 .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1007, Short.MAX_VALUE))
+                .addContainerGap(947, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbltuerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblnombrefirma, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 140));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 140));
 
         jPanel4.setBackground(new java.awt.Color(165, 200, 202));
 
@@ -213,7 +191,7 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Nombre", "FechaI", "FechaF", "Descripcion", "Estado", "Accion", "Alerta"
+                "id", "Nombre", "Fecha inicio", "Fecha limite", "Descripcion", "Estado", "Accion", "Alerta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -226,7 +204,7 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 840, 340));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 840, 340));
 
         jButton1.setText("Refrescar Datos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -252,9 +230,7 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,17 +239,6 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void panelOpcionesPantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOpcionesPantallaMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_panelOpcionesPantallaMousePressed
-
-    private void panelOpcionesPantallaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOpcionesPantallaMouseReleased
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_panelOpcionesPantallaMouseReleased
 
     private void exitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBtnMouseClicked
         System.exit(0);
@@ -284,14 +249,14 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
       
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
             
             jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Fecha inicio", "Fecha limite", "Estado"
+                "id", "Nombre", "Fecha inicio", "Fecha limite", "Descripcion", "Estado", "Accion", "Alerta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -305,7 +270,10 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             
-            String sql = "select * from tarea";
+            String sql = "select t.id_tarea, t.nombre_tarea, t.fecha_inicio, t.fecha_limite, t.descripcion, e.nombre_estado, a.nombre_accion, al.id_alerta from tarea t\n" +
+"join estado e on e.id_estado = t.id_estado \n" +
+"join accion a on a.id_accion = t.id_accion\n" +
+"join alerta al on al.id_alerta = t.id_alerta";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
@@ -315,9 +283,9 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
                 String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
                 String FechaF = String.valueOf(rs.getDate("fecha_limite"));
                 String Descripcion = rs.getString("descripcion");
-                String Estado = String.valueOf(rs.getInt("id_estado"));
-                String Accion = String.valueOf(rs.getInt("id_accion"));
-                String Alerta = String.valueOf(rs.getInt("id_alerta"));
+                String Estado = String.valueOf(rs.getString("nombre_estado"));
+                String Accion = String.valueOf(rs.getString("nombre_accion"));
+                String Alerta = String.valueOf(rs.getString("id_alerta"));
                 
                 String tbData[] = {id,Nombre,FechaI,FechaF,Descripcion,Estado,Accion,Alerta};
                 DefaultTableModel tblModel = (DefaultTableModel)jTable2.getModel();
@@ -383,6 +351,5 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblnombrefirma;
     private javax.swing.JLabel lbltuerca;
-    private javax.swing.JPanel panelOpcionesPantalla;
     // End of variables declaration//GEN-END:variables
 }

@@ -213,7 +213,7 @@ public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Nombre", "FechaI", "FechaF", "Estado", "Nombre de Actividad"
+                "id", "Nombre", "Fecha inicio", "Fecha limite", "Estado", "Nombre de Actividad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -282,16 +282,18 @@ public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             
       
+        
+        
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
             
             jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Fecha inicio", "Fecha limite", "Estado"
+                "id", "Nombre", "Fecha inicio", "Fecha limite", "Estado", "Nombre de Actividad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -305,16 +307,18 @@ public class TablaDe_Tiempo_Acciones extends javax.swing.JFrame {
             
             Statement st = con.createStatement();
             
-            String sql = "select * from accion";
+            String sql = "select a.id_accion, a.nombre_accion, a.fecha_inicio, a.fecha_limite, e.nombre_estado, ac.nombre_actividad from accion a \n" +
+"join actividad ac on ac.id_actividad = a.id_actividad  \n" +
+"join estado e on e.id_estado = a.id_estado";
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
                 
-                String id = String.valueOf(rs.getInt("id_tarea"));
-                String Nombre = rs.getString("nombre_tarea");
+                String id = String.valueOf(rs.getInt("id_accion"));
+                String Nombre = rs.getString("nombre_accion");
                 String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
                 String FechaF = String.valueOf(rs.getDate("fecha_limite"));
-                String Estado = String.valueOf(rs.getInt("id_estado"));
+                String Estado = String.valueOf(rs.getString("nombre_estado"));
                 String Actividad = rs.getString("nombre_actividad");
                 
                 

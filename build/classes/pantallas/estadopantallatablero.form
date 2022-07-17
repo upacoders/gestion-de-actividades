@@ -32,6 +32,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="103" alignment="1" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -76,6 +77,51 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+=======
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                                  <Component id="nombreProyecto" min="-2" pref="280" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
+                              <Component id="botonJefeEspacio1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel7" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                              <Component id="botonJefeEspacio2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonJefeEspacio" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jDateChooser4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -84,7 +130,11 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
+=======
+                          <Component id="guardarBtn" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                           <Component id="cancelarBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -99,35 +149,59 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                   <Component id="txtnombre" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="nombreProyecto" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="cldinicio" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="cldlimite" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="jDateChooser4" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
               </Group>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="rdenproceso" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="botonJefeEspacio" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
               </Group>
               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="rdpendientes" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="botonJefeEspacio1" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
               </Group>
               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="rdfinalizadas" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="botonJefeEspacio2" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
               </Group>
               <EmptySpace pref="58" max="32767" attributes="0"/>
           </Group>
@@ -137,7 +211,11 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
+=======
+                      <Component id="guardarBtn" min="-2" max="-2" attributes="0"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
                       <Component id="cancelarBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -194,7 +272,11 @@
         <Property name="text" type="java.lang.String" value="Nombre de la actividad"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JTextField" name="txtnombre">
+=======
+    <Component class="javax.swing.JTextField" name="nombreProyecto">
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="12" style="0"/>
@@ -202,7 +284,11 @@
         <Property name="text" type="java.lang.String" value="Agregar nombre de la actividad"/>
       </Properties>
       <Events>
+<<<<<<< HEAD
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnombreActionPerformed"/>
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreProyectoActionPerformed"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -221,9 +307,15 @@
         <Property name="text" type="java.lang.String" value="En proceso"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JRadioButton" name="rdenproceso">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdenprocesoActionPerformed"/>
+=======
+    <Component class="javax.swing.JRadioButton" name="botonJefeEspacio">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonJefeEspacioActionPerformed"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -234,9 +326,15 @@
         <Property name="text" type="java.lang.String" value="Pendientes"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JRadioButton" name="rdpendientes">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdpendientesActionPerformed"/>
+=======
+    <Component class="javax.swing.JRadioButton" name="botonJefeEspacio1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonJefeEspacio1ActionPerformed"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -247,17 +345,30 @@
         <Property name="text" type="java.lang.String" value="Finalizadas"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JRadioButton" name="rdfinalizadas">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdfinalizadasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnguardar">
+=======
+    <Component class="javax.swing.JRadioButton" name="botonJefeEspacio2">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonJefeEspacio2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="guardarBtn">
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
       <Events>
+<<<<<<< HEAD
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarActionPerformed"/>
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarBtnActionPerformed"/>
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarBtn">
@@ -284,9 +395,15 @@
         <Property name="text" type="java.lang.String" value="Fecha limite "/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="com.toedter.calendar.JDateChooser" name="cldinicio">
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="cldlimite">
+=======
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser4">
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
     </Component>
   </SubComponents>
 </Form>

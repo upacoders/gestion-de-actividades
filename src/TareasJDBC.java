@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+<<<<<<< HEAD
 package baseDatos;
 
 import java.sql.Connection;
@@ -77,4 +78,13 @@ public class TareasJDBC {
 
 		return false;
 	}
+=======
+
+/**
+ *
+ * @author ricar
+ */
+public class TareasJDBC {
+    
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
 }

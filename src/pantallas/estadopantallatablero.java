@@ -4,7 +4,11 @@
  */
 package pantallas;
 
+<<<<<<< HEAD
 import baseDatos.ActividadesJDBC;
+=======
+import baseDatos.TareasJDBC;
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
@@ -19,12 +23,20 @@ public class estadopantallatablero extends javax.swing.JPanel {
     String fechalimite;
     String estado;
     SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
+<<<<<<< HEAD
     ActividadesJDBC actividadesjdbc;
+=======
+    TareasJDBC tareasjdbc;
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
     /**
      * Creates new form estadopantallatablero
      */
     public estadopantallatablero() throws Exception {
+<<<<<<< HEAD
         actividadesjdbc = new ActividadesJDBC();
+=======
+        tareasjdbc = new TareasJDBC();
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
         initComponents();
     }
 
@@ -159,6 +171,7 @@ public class estadopantallatablero extends javax.swing.JPanel {
                             .addGap(157, 157, 157)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                                     .addComponent(cldlimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
@@ -179,6 +192,36 @@ public class estadopantallatablero extends javax.swing.JPanel {
                             .addComponent(jLabel9)
                             .addComponent(rdenproceso))))
                 .addGap(45, 45, 45))
+=======
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(157, 157, 157)
+                                    .addComponent(cldinicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addComponent(rdpendientes))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(rdfinalizadas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(rdenproceso))))
+                        .addGap(45, 45, 45))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cldlimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148))))
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -257,8 +300,13 @@ public class estadopantallatablero extends javax.swing.JPanel {
         nombre = txtnombre.getText();
         fechainicio = sdf.format(cldinicio.getDate());
         fechalimite = sdf.format(cldlimite.getDate());
+<<<<<<< HEAD
         int id_estado = actividadesjdbc.Idestado(estado);
         actividadesjdbc.insert(nombre, fechainicio, fechalimite, id_estado);
+=======
+        int id_estado = tareasjdbc.Idestado(estado);
+        tareasjdbc.insert(nombre, fechainicio, fechalimite, id_estado);
+>>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
         
         
         

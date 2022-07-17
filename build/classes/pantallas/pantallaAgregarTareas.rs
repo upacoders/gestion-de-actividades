@@ -1,0 +1,5 @@
+Pantallas.pantallaAgregarTareas$4
+Pantallas.pantallaAgregarTareas$2
+Pantallas.pantallaAgregarTareas$3
+Pantallas.pantallaAgregarTareas$1
+Pantallas.pantallaAgregarTareas
