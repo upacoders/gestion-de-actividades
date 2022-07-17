@@ -1,9 +1,0 @@
-Pantallas.pantallaTablero$2
-Pantallas.pantallaTablero$3
-Pantallas.pantallaTablero$4
-Pantallas.pantallaTablero
-Pantallas.pantallaTablero$5
-Pantallas.pantallaTablero$6
-Pantallas.pantallaTablero$7
-Pantallas.pantallaTablero$8
-Pantallas.pantallaTablero$1

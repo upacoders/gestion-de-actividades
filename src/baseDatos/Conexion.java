@@ -12,7 +12,7 @@ public class Conexion {
 <<<<<<< HEAD
         */
 	private String usuario = "postgres";
-	private String contrasenia = "12345";
+	private String contrasenia = "12345678";
 	private Connection conexion = null;
 
 
