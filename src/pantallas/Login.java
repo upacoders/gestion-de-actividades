@@ -200,6 +200,11 @@ public class Login extends javax.swing.JFrame {
                 passwordMousePressed(evt);
             }
         });
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
@@ -351,11 +356,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        JFrame jframe = new JFrame();
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Euclick","postgres","12345");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
             
             Statement st = con.createStatement();
             
@@ -443,8 +447,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        JFrame jframe = new JFrame();
-        
         try{
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
@@ -458,9 +460,10 @@ public class Login extends javax.swing.JFrame {
                 Guardar_id guardar_id = new Guardar_id(id);
                 sonido("sonidointro");
                 javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                pantallaEditarperfil newFrame = new pantallaEditarperfil();
+                espacio_de_trabajo newFrame = new espacio_de_trabajo();
                 newFrame.setVisible(true);
                 this.dispose();
+                
             }else{
                 JOptionPane.showMessageDialog(this, "¡La contraseña o el email es incorrecto, pone bien inutil!");
             }
@@ -497,6 +500,10 @@ public class Login extends javax.swing.JFrame {
              javax.swing.JOptionPane.showMessageDialog(this, "Intengo de login con datos:\nUsuario: " + user.getText() + "\nContraseña: " + String.valueOf(password.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_passwordKeyPressed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments

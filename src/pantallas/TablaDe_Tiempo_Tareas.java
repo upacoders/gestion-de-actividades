@@ -249,7 +249,7 @@ public class TablaDe_Tiempo_Tareas extends javax.swing.JFrame {
       
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","Paraguay12");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
             
             jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

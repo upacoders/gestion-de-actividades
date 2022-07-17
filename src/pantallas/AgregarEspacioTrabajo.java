@@ -26,6 +26,10 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JimenaBtnGroup = new javax.swing.ButtonGroup();
+        HiramBtnGroup = new javax.swing.ButtonGroup();
+        MarceleloBtnGroup = new javax.swing.ButtonGroup();
+        GuidoBtnGroup = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -96,13 +100,14 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel4.setText("Trabajo");
+        jLabel4.setText("Trabajador");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel5.setText("Jimena Lezcano");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
+        JimenaBtnGroup.add(botonJefeEspacio);
         botonJefeEspacio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonJefeEspacioActionPerformed(evt);
@@ -110,6 +115,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         });
         add(botonJefeEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
 
+        JimenaBtnGroup.add(botontrabajo);
         botontrabajo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botontrabajoActionPerformed(evt);
@@ -121,6 +127,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         jLabel6.setText("Hiram Verdefronte");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
+        HiramBtnGroup.add(botonJefeEspacio1);
         botonJefeEspacio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonJefeEspacio1ActionPerformed(evt);
@@ -128,6 +135,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         });
         add(botonJefeEspacio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
+        HiramBtnGroup.add(botonTrabajo1);
         botonTrabajo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTrabajo1ActionPerformed(evt);
@@ -139,6 +147,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         jLabel7.setText("Marcelo Rodriguez");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
+        MarceleloBtnGroup.add(botonJefeEspacio2);
         botonJefeEspacio2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonJefeEspacio2ActionPerformed(evt);
@@ -146,6 +155,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         });
         add(botonJefeEspacio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
+        MarceleloBtnGroup.add(botonTrabajo2);
         botonTrabajo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTrabajo2ActionPerformed(evt);
@@ -157,6 +167,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         jLabel8.setText("Guido Acosta");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
+        GuidoBtnGroup.add(botonJefeEspacio3);
         botonJefeEspacio3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonJefeEspacio3ActionPerformed(evt);
@@ -164,6 +175,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         });
         add(botonJefeEspacio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
+        GuidoBtnGroup.add(botonTrabajo3);
         botonTrabajo3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTrabajo3ActionPerformed(evt);
@@ -245,6 +257,10 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup GuidoBtnGroup;
+    private javax.swing.ButtonGroup HiramBtnGroup;
+    private javax.swing.ButtonGroup JimenaBtnGroup;
+    private javax.swing.ButtonGroup MarceleloBtnGroup;
     private javax.swing.JRadioButton botonJefeEspacio;
     private javax.swing.JRadioButton botonJefeEspacio1;
     private javax.swing.JRadioButton botonJefeEspacio2;
