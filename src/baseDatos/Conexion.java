@@ -4,20 +4,12 @@ import java.sql.*;
 
 //finanzas_personales
 public class Conexion {
-
     private String url = "jdbc:postgresql://localhost:5432/Euclick";
-
-    /*
-        cambiar el numero de puerto al utilizado y el nombre de la base de datos.
-<<<<<<< HEAD
-        */
 	private String usuario = "postgres";
-<<<<<<< HEAD
 	private String contrasenia = "Keigomitsui77";
-=======
-	private String contrasenia = "postgres";
->>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
 	private Connection conexion = null;
+
+    
 
 
     public void crearConexion() throws Exception {
@@ -32,7 +24,7 @@ public class Conexion {
         // se crea la conexion
         try {
             //Conexion con la base de datos
-            conexion = DriverManager.getConnection(this.url, this.usuario, this.contrasenia);
+            conexion = DriverManager.getConnection(this.url, usuario, contrasenia);
         } catch (Exception e) {
 
             e.printStackTrace();

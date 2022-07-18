@@ -21,7 +21,7 @@ public class ActividadesJDBC {
 	}
         public int Idestado(String estado){
             try{
-                String updateSQL = "select id_estado where nombre_estado = ´'" + estado + "'";
+                String updateSQL = "select id_estado from estado where nombre_estado = ´'" + estado + "'";
                 Statement statement = null;
                 statement = this.conexion.createStatement();
                 ResultSet resultSet = statement.executeQuery(updateSQL);

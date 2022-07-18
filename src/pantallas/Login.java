@@ -32,7 +32,7 @@ import javax.swing.*;
  * @author Lenovo
  */
 public class Login extends javax.swing.JFrame {
-    
+  
     
 
     /**
@@ -359,7 +359,7 @@ public class Login extends javax.swing.JFrame {
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
             
             Statement st = con.createStatement();
             
@@ -449,7 +449,7 @@ public class Login extends javax.swing.JFrame {
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
             
             Statement st = con.createStatement();
             

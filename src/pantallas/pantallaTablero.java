@@ -5,21 +5,21 @@
 
 package Pantallas;
 
+import baseDatos.ActividadesJDBC;
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pantallas.AgregarEspacioTrabajo;
-import pantallas.espacio_de_trabajo;
-import pantallas.estadopantallatablero;
+import pantallas.agregarActividades;
 
 /**
  *
  * @author user
  */
 public class pantallaTablero extends javax.swing.JFrame {
-estadopantallatablero estadopantallatablero;
-    /** Creates new form pantallaEditarperfil */
-    public pantallaTablero() {
+    
+    public pantallaTablero() throws Exception {
+        
         initComponents();
     }
 
@@ -71,7 +71,7 @@ estadopantallatablero estadopantallatablero;
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(0, 190, 330, 23);
+        jButton7.setBounds(0, 190, 330, 22);
 
         jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setText("Dashboard");
@@ -81,7 +81,7 @@ estadopantallatablero estadopantallatablero;
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(0, 230, 330, 23);
+        jButton6.setBounds(0, 230, 330, 22);
 
         jButton8.setBackground(new java.awt.Color(204, 204, 204));
         jButton8.setText("Configuraciones");
@@ -91,7 +91,7 @@ estadopantallatablero estadopantallatablero;
             }
         });
         getContentPane().add(jButton8);
-        jButton8.setBounds(0, 270, 330, 23);
+        jButton8.setBounds(0, 270, 330, 22);
 
         labelusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logousuario.png"))); // NOI18N
         getContentPane().add(labelusuario);
@@ -127,6 +127,11 @@ estadopantallatablero estadopantallatablero;
         btnaggacti.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnaggactiMouseClicked(evt);
+            }
+        });
+        btnaggacti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaggactiActionPerformed(evt);
             }
         });
         getContentPane().add(btnaggacti);
@@ -184,30 +189,18 @@ estadopantallatablero estadopantallatablero;
 
         getContentPane().add(panelTerminadas);
         panelTerminadas.setBounds(360, 370, 460, 120);
+
+        content.setMinimumSize(new java.awt.Dimension(544, 450));
+        content.setName(""); // NOI18N
+        content.setPreferredSize(new java.awt.Dimension(544, 450));
         getContentPane().add(content);
-        content.setBounds(860, 190, 540, 470);
+        content.setBounds(850, 190, 544, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaggactiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaggactiMouseClicked
-<<<<<<< HEAD
-        estadopantallatablero pT = estadopantallatablero();
-=======
-        estadopantallatablero pT = null;
-        try {
-            pT = new estadopantallatablero();
-        } catch (Exception ex) {
-            Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
-        }
->>>>>>> 785bb0877d0fde26e29d8bb035c6038a0b936d23
-        pT.setSize(540,470);
-        pT.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(pT, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
+        //
     }//GEN-LAST:event_btnaggactiMouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -221,6 +214,22 @@ estadopantallatablero estadopantallatablero;
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void btnaggactiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaggactiActionPerformed
+        agregarActividades eT = null;
+        try {
+            eT = new agregarActividades();
+        } catch (Exception ex) {
+            Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        eT.setSize(540,470);
+        eT.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(eT, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnaggactiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,7 +262,11 @@ estadopantallatablero estadopantallatablero;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantallaTablero().setVisible(true);
+                try {
+                    new pantallaTablero().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }); 
    }
@@ -265,7 +278,6 @@ estadopantallatablero estadopantallatablero;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
@@ -281,8 +293,7 @@ estadopantallatablero estadopantallatablero;
     private javax.swing.JScrollPane panelpendientes;
     // End of variables declaration//GEN-END:variables
 
-    private estadopantallatablero estadopantallatablero() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
+    
 
 }

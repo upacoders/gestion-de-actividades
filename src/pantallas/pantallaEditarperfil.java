@@ -37,7 +37,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
             
             Statement st = con.createStatement();
             String sql = "select nombre, apellido, correo from persona where id_persona = " + Guardar_id.id ;

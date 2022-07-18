@@ -16,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
  * @author ignaciodominguez
  */
 public class dashboard extends javax.swing.JFrame {
-
     /**
      * Creates new form dashboard
      */
@@ -339,7 +338,7 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
             
             jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -386,7 +385,7 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
              jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -431,7 +430,7 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try{
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres","12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
