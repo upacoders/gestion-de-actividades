@@ -5,8 +5,8 @@
  */
 package pantallas;
 
+import baseDatos.AccionesJDBC;
 import java.sql.DriverManager;
-import baseDatos.accionescon;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -23,7 +23,7 @@ import java.sql.*;
 public class AgregarAcciones extends javax.swing.JFrame {
 
     PreparedStatement ps = null;
-    Connection con = accionescon.conDB();
+    Connection con = AccionesJDBC.insertarAcc();
 
     /**
      * Creates new form AgregarAcciones
