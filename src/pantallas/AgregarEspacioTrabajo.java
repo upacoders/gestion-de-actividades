@@ -1,42 +1,51 @@
 package pantallas;
 
-
+import baseDatos.Conexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class AgregarEspacioTrabajo extends javax.swing.JPanel {
+
+    DefaultTableModel tMR = new DefaultTableModel();
 
     public AgregarEspacioTrabajo() {
         initComponents();
 
+        tMR.addColumn("Miembro");
+        tMR.addColumn("Rol");
+        tablaMiembroRol.setModel(tMR);
+
         try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
 
             Statement st = con.createStatement();
-            String sql = "select nombre, apellido from persona";
+            String sql = "select id_persona, correo from persona order by id_persona ASC";
             ResultSet rs = st.executeQuery(sql);
-            
+
             miembros.removeAllItems();
             miembros.addItem("Seleccione una opcion");
 
             while (rs.next()) {
-                miembros.addItem(rs.getString("nombre")+" "+rs.getString("apellido"));
+                miembros.addItem(rs.getString("correo"));
             }
             con.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
         try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
 
             Statement st = con.createStatement();
-            String sql = "select nombre_rol from rol;";
+            String sql = "select nombre_rol,id_rol from rol order by id_rol asc;";
             ResultSet rs = st.executeQuery(sql);
             rolmiembro.removeAllItems();
             rolmiembro.addItem("Seleccione una opcion");
@@ -104,6 +113,11 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
 
         nombreProyecto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         nombreProyecto.setText("agregar nombre del Espacio de Trabajo");
+        nombreProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreProyectoActionPerformed(evt);
+            }
+        });
         add(nombreProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 280, -1));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -111,6 +125,11 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 120, -1));
 
         guardarBtn.setText("Guardar");
+        guardarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarBtnMouseClicked(evt);
+            }
+        });
         guardarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarBtnActionPerformed(evt);
@@ -164,13 +183,10 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
 
         tablaMiembroRol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Miembro", "Rol"
+
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -187,7 +203,7 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
             tablaMiembroRol.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 90));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, 90));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarBtnMouseClicked
@@ -195,7 +211,59 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelarBtnMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-        // TODO add your handling code here:
+        //ACA FALTA ARREGLAR PARA INSERTAR
+        //Tomamos los nombre elegidos en la tabla y los guardaremos en la base de datos
+        for (int i = 0; i < tablaMiembroRol.getRowCount(); i++) {
+            String correoPersona = (String) tablaMiembroRol.getValueAt(i, 0);
+            String idRol = (String) tablaMiembroRol.getValueAt(i, 1);
+
+            try {
+                Class.forName("org.postgresql.Driver");
+                Connection Conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
+                Conexion con = new Conexion();
+                String nombre = nombreProyecto.getText();
+                Connection conexion;
+                con.crearConexion();
+                Conexion = con.getConexion();
+                Statement st = Conexion.createStatement();
+                String sqlinsertar = "insert into espacio_trabajo (nombre_espacio_trabajo) values (?)";
+                PreparedStatement sentencia_preparada = null;
+                sentencia_preparada = Conexion.prepareStatement(sqlinsertar);
+                sentencia_preparada.setString(1, nombre);
+                sentencia_preparada.executeUpdate();
+                sentencia_preparada.close();
+                
+                
+                String sqlid = "select id_espacio_trabajo from espacio_trabajo where nombre_espacio_trabajo = '" + nombre + "'";
+                ResultSet resultSet = st.executeQuery(sqlid);
+                resultSet.next();
+		int id_espacio_trabajo = resultSet.getInt(1);
+                
+                String sqlid_p = "select id_persona from persona where correo = '" + correoPersona + "'";
+                resultSet = st.executeQuery(sqlid_p);
+                resultSet.next();
+		int id_persona = resultSet.getInt(1);
+                
+                
+                String sqlcrearespacio = "insert into persona_espacio_trabajo (id_persona, id_espacio_trabajo)"+ " values (?,?)";
+                sentencia_preparada = null;
+                sentencia_preparada = Conexion.prepareStatement(sqlcrearespacio);
+                sentencia_preparada.setInt(1, id_persona);
+                sentencia_preparada.setInt(2, id_espacio_trabajo);
+                sentencia_preparada.executeUpdate();
+                sentencia_preparada.close();
+                
+                JOptionPane.showMessageDialog(null, "Tablero creado con exito");
+                
+                Conexion.close();
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            System.out.println("Nombre: " + correoPersona);//Nombre del Wey
+            System.out.println("Rol: " + idRol);//Nombre del rol
+        }
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
@@ -207,32 +275,47 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     }//GEN-LAST:event_miembrosActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+
+        if (miembros.getSelectedItem().toString().equals("Seleccione una opcion")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "DEBE ELEGIR UN MIEMBRO AL MENOS " + javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else if (rolmiembro.getSelectedItem().toString().equals("Seleccione una opcion")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "DEBE ELEGIR UN ROL AL MENOS " + javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String Dato[] = new String[2];
+            String elegido = miembros.getSelectedItem().toString();
+            String rolElegido = rolmiembro.getSelectedItem().toString();
+            Dato[0] = elegido;
+            Dato[1] = rolElegido;
+
+            tMR.addRow(Dato);
+        }
+
         try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
 
             Statement st = con.createStatement();
-            String sql = "select nombre, apellido, id_persona from persona";
+            String sql = "select id_persona, correo from persona order by id_persona ASC";
             ResultSet rs = st.executeQuery(sql);
-            
+
             miembros.removeAllItems();
             miembros.addItem("Seleccione una opcion");
 
             while (rs.next()) {
-                miembros.addItem(rs.getString("nombre")+" "+rs.getString("apellido"));
+                miembros.addItem(rs.getString("correo"));
             }
             con.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
         try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "12345678");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
 
             Statement st = con.createStatement();
-            String sql = "select nombre_rol from rol;";
+            String sql = "select nombre_rol,id_rol from rol order by id_rol ASC;";
             ResultSet rs = st.executeQuery(sql);
             rolmiembro.removeAllItems();
             rolmiembro.addItem("Seleccione una opcion");
@@ -245,13 +328,21 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-        System.out.println("El nombre es "+miembros.getActionCommand());
+
+
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void rolmiembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolmiembroActionPerformed
         //
     }//GEN-LAST:event_rolmiembroActionPerformed
+
+    private void guardarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarBtnMouseClicked
+
+    }//GEN-LAST:event_guardarBtnMouseClicked
+
+    private void nombreProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProyectoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreProyectoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,6 +362,6 @@ public class AgregarEspacioTrabajo extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> miembros;
     private javax.swing.JTextField nombreProyecto;
     private javax.swing.JComboBox<String> rolmiembro;
-    private javax.swing.JTable tablaMiembroRol;
+    public javax.swing.JTable tablaMiembroRol;
     // End of variables declaration//GEN-END:variables
 }

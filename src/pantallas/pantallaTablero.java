@@ -5,12 +5,19 @@
 
 package Pantallas;
 
-import baseDatos.ActividadesJDBC;
 import java.awt.BorderLayout;
-import java.text.SimpleDateFormat;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import pantallas.Configuracion;
+import pantallas.Tableroacciones;
 import pantallas.agregarActividades;
+import pantallas.dashboard;
+import pantallas.espacio_de_trabajo;
 
 /**
  *
@@ -19,8 +26,84 @@ import pantallas.agregarActividades;
 public class pantallaTablero extends javax.swing.JFrame {
     
     public pantallaTablero() throws Exception {
-        
         initComponents();
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
+            
+            Statement st = con.createStatement();
+            
+            String sql = "select nombre_actividad, fecha_inicio, fecha_limite  from actividad a where id_estado = 1";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+                
+                String Nombre = rs.getString("nombre_actividad");
+                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
+                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                
+                String tbData[] = {Nombre,FechaI,FechaF};
+                DefaultTableModel tblModel = (DefaultTableModel)tablaproceso.getModel();
+                tblModel.addRow(tbData);
+            }
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
+            
+            Statement st = con.createStatement();
+            
+            String sql = "select nombre_actividad, fecha_inicio, fecha_limite  from actividad a where id_estado = 2";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+                
+                String Nombre = rs.getString("nombre_actividad");
+                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
+                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                
+                String tbData[] = {Nombre,FechaI,FechaF};
+                DefaultTableModel tblModel = (DefaultTableModel)tablapendiente.getModel();
+                tblModel.addRow(tbData);
+            }
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
+            
+            Statement st = con.createStatement();
+            
+            String sql = "select nombre_actividad, fecha_inicio, fecha_limite  from actividad a where id_estado = 3";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+                
+                String Nombre = rs.getString("nombre_actividad");
+                String FechaI = String.valueOf(rs.getDate("fecha_inicio"));
+                String FechaF = String.valueOf(rs.getDate("fecha_limite"));
+                
+                String tbData[] = {Nombre,FechaI,FechaF};
+                DefaultTableModel tblModel = (DefaultTableModel)tablafinalizada.getModel();
+                tblModel.addRow(tbData);
+            }
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /** This method is called from within the constructor to
@@ -44,13 +127,14 @@ public class pantallaTablero extends javax.swing.JFrame {
         btnaggacti = new javax.swing.JButton();
         lblevaluaciones = new javax.swing.JLabel();
         lblacciones = new javax.swing.JLabel();
-        panelpendientes = new javax.swing.JScrollPane();
-        listPendientes = new javax.swing.JList<>();
-        panelenproceso = new javax.swing.JScrollPane();
-        listEnProceso = new javax.swing.JList<>();
-        panelTerminadas = new javax.swing.JScrollPane();
-        listTerminadas = new javax.swing.JList<>();
         content = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaproceso = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablapendiente = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablafinalizada = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -65,6 +149,11 @@ public class pantallaTablero extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(204, 204, 204));
         jButton7.setText("Espacios de trabajo");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -145,56 +234,107 @@ public class pantallaTablero extends javax.swing.JFrame {
         lblevaluaciones.setBounds(350, 150, 250, 40);
 
         lblacciones.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblacciones.setText("Acciones");
+        lblacciones.setText("Actividades");
         getContentPane().add(lblacciones);
         lblacciones.setBounds(370, 200, 250, 40);
-
-        panelpendientes.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        listPendientes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Pendiente", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listPendientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        listPendientes.setName(""); // NOI18N
-        panelpendientes.setViewportView(listPendientes);
-        listPendientes.getAccessibleContext().setAccessibleDescription("");
-
-        getContentPane().add(panelpendientes);
-        panelpendientes.setBounds(360, 500, 460, 120);
-
-        panelenproceso.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelenproceso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        listEnProceso.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "En proceso", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        panelenproceso.setViewportView(listEnProceso);
-
-        getContentPane().add(panelenproceso);
-        panelenproceso.setBounds(360, 240, 460, 120);
-
-        panelTerminadas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        listTerminadas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Terminadas", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listTerminadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelTerminadas.setViewportView(listTerminadas);
-
-        getContentPane().add(panelTerminadas);
-        panelTerminadas.setBounds(360, 370, 460, 120);
 
         content.setMinimumSize(new java.awt.Dimension(544, 450));
         content.setName(""); // NOI18N
         content.setPreferredSize(new java.awt.Dimension(544, 450));
         getContentPane().add(content);
         content.setBounds(850, 190, 544, 450);
+
+        tablaproceso.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Actividades pendientes", "Fecha Ini", "Fecha limi"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaproceso);
+        if (tablaproceso.getColumnModel().getColumnCount() > 0) {
+            tablaproceso.getColumnModel().getColumn(0).setResizable(false);
+            tablaproceso.getColumnModel().getColumn(1).setResizable(false);
+            tablaproceso.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(360, 240, 460, 140);
+
+        tablapendiente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Actividades en proceso", "Fecha Ini", "Fecha limi"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tablapendiente);
+        if (tablapendiente.getColumnModel().getColumnCount() > 0) {
+            tablapendiente.getColumnModel().getColumn(0).setResizable(false);
+            tablapendiente.getColumnModel().getColumn(1).setResizable(false);
+            tablapendiente.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(360, 390, 460, 140);
+
+        tablafinalizada.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Actividades finalizadas", "Fecha Ini", "Fecha limi"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tablafinalizada);
+        if (tablafinalizada.getColumnModel().getColumnCount() > 0) {
+            tablafinalizada.getColumnModel().getColumn(0).setResizable(false);
+            tablafinalizada.getColumnModel().getColumn(1).setResizable(false);
+            tablafinalizada.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane5);
+        jScrollPane5.setBounds(360, 550, 460, 140);
+
+        jButton1.setText("Ir a acciones");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(705, 210, 110, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,14 +345,23 @@ public class pantallaTablero extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        espacio_de_trabajo newframe = new espacio_de_trabajo();
+        newframe.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        dashboard newframe = new dashboard();
+        newframe.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        Configuracion newframe = new Configuracion();
+        newframe.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btnaggactiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaggactiActionPerformed
@@ -230,6 +379,25 @@ public class pantallaTablero extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnaggactiActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Tableroacciones newFrame = null;
+        try {
+            newFrame = new Tableroacciones();
+        } catch (Exception ex) {
+            Logger.getLogger(pantallaTablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -274,10 +442,14 @@ public class pantallaTablero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaggacti;
     private javax.swing.JPanel content;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel labelusuario;
     private javax.swing.JLabel lblacciones;
     private javax.swing.JLabel lblevaluaciones;
@@ -285,12 +457,9 @@ public class pantallaTablero extends javax.swing.JFrame {
     private javax.swing.JLabel lblpartelat;
     private javax.swing.JLabel lblpartesup;
     private javax.swing.JLabel lbltuerca;
-    private javax.swing.JList<String> listEnProceso;
-    private javax.swing.JList<String> listPendientes;
-    private javax.swing.JList<String> listTerminadas;
-    private javax.swing.JScrollPane panelTerminadas;
-    private javax.swing.JScrollPane panelenproceso;
-    private javax.swing.JScrollPane panelpendientes;
+    private javax.swing.JTable tablafinalizada;
+    private javax.swing.JTable tablapendiente;
+    private javax.swing.JTable tablaproceso;
     // End of variables declaration//GEN-END:variables
 
 

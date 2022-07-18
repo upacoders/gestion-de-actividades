@@ -90,7 +90,6 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(227, 229, 215));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Ejercicios de trabajo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +115,6 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 1710, 150);
 
         jButton2.setBackground(new java.awt.Color(227, 229, 215));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Dashboard");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +125,6 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
         jButton2.setBounds(0, 250, 330, 30);
 
         jButton3.setBackground(new java.awt.Color(227, 229, 215));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Configuración");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +146,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(490, 530, 100, 25);
+        jButton4.setBounds(490, 530, 100, 22);
 
         lblpartelat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/partelateral.png"))); // NOI18N
         getContentPane().add(lblpartelat);
@@ -191,14 +188,13 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(1230, 610, 150, 25);
+        jButton5.setBounds(1230, 610, 150, 22);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Nombre");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(900, 330, 80, 20);
 
-        jTextField3.setText("vbn");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -233,7 +229,7 @@ public class pantallaEditarperfil extends javax.swing.JFrame {
 
         if ((fileName != null) || (fileName.getName().equals(""))) {
             rutaimagen = fileName.getAbsolutePath();
-            
+            personaJDBC.guardar(rutaimagen);
         }  
     }//GEN-LAST:event_jButton4ActionPerformed
     setScaletFoto(jLabel5, rutaimagen);

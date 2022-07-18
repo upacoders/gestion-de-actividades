@@ -5,6 +5,8 @@ Pantallas.pantallaTablero
 Pantallas.pantallaTablero$5
 Pantallas.pantallaTablero$6
 Pantallas.pantallaTablero$7
+Pantallas.pantallaTablero$10
 Pantallas.pantallaTablero$8
+Pantallas.pantallaTablero$11
 Pantallas.pantallaTablero$9
 Pantallas.pantallaTablero$1

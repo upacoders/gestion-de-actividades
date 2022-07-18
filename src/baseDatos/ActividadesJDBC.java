@@ -1,6 +1,7 @@
 package baseDatos;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -21,7 +22,7 @@ public class ActividadesJDBC {
 	}
         public int Idestado(String estado){
             try{
-                String updateSQL = "select id_estado from estado where nombre_estado = ´'" + estado + "'";
+                String updateSQL = "select id_estado from estado where nombre_estado = '" + estado + "'";
                 Statement statement = null;
                 statement = this.conexion.createStatement();
                 ResultSet resultSet = statement.executeQuery(updateSQL);
@@ -39,17 +40,18 @@ public class ActividadesJDBC {
             return id_estado; 
         }
        
-        public boolean insert(String nombre, String fechainicio, String fechalimite, int estado) {
+        public boolean insert(String nombre, String FI, String FL, int estado) {
             int id_tablero = 1;
 		try {
-                    String insertSQL = "insert into tareas(nombre_actividad, fecha_inicio, fecha_limite, id_tablero, id_estado)" + " values(?,?,?,?)";
+                    String insertSQL = "insert into actividad (nombre_actividad, fecha_inicio, fecha_limite, id_tablero, id_estado)" + " values(?,?,?,?,?)";
 			PreparedStatement sentencia_preparada = null;
 			sentencia_preparada = this.conexion.prepareStatement(insertSQL);
 			sentencia_preparada.setString(1, nombre);
-			sentencia_preparada.setString(2, fechainicio);
-			sentencia_preparada.setString(3, fechalimite);
+			sentencia_preparada.setString(2, FI);
+			sentencia_preparada.setString(3, FL);
 			sentencia_preparada.setInt(4, id_tablero);
-                        sentencia_preparada.setInt(4, estado);
+                        sentencia_preparada.setInt(5, id_estado);
+                        
 			// se ejecuta la sentencia
 			sentencia_preparada.executeUpdate();
 			// se cierra sentencia_preparada
@@ -69,4 +71,8 @@ public class ActividadesJDBC {
 
 		return false;
 	}
+
+    public void insert(String nombre, java.util.Date fechainicio, java.util.Date fechalimite, int id_estado) {
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

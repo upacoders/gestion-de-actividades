@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author user
+ * @author nani
  */
 public class TareasJDBC {
 
@@ -54,17 +54,28 @@ public class TareasJDBC {
         return id_estado;
     }
 
-    public boolean insert(String nombre, String fechainicio, String fechalimite, int estado) {
-        int id_tablero = 1;
+    /**
+     *
+     * @param nombre
+     * @param fechainicio
+     * @param fechalimite
+     * @param descripcion
+     * @param estado
+     * @param id_accion
+     * @return
+     */
+    public boolean insert(String nombre, String fechainicio, String fechalimite, String descripcion, int estado, int id_accion) {
         try {
-            String insertSQL = "insert into tareas(nombre_actividad, fecha_inicio, fecha_limite, id_tablero, id_estado)" + " values(?,?,?,?)";
+            
+            String insertSQL = "insert into tareas(nombre_actividad, fecha_inicio, fecha_limite, descripcion, id_estado, id_accion)" + " values(?,?,?,?,?,?)";
             PreparedStatement sentencia_preparada = null;
             sentencia_preparada = this.conexion.prepareStatement(insertSQL);
             sentencia_preparada.setString(1, nombre);
             sentencia_preparada.setString(2, fechainicio);
             sentencia_preparada.setString(3, fechalimite);
-            sentencia_preparada.setInt(4, id_tablero);
-            sentencia_preparada.setInt(4, estado);
+            sentencia_preparada.setString(4, descripcion);
+            sentencia_preparada.setInt(5, estado);
+            sentencia_preparada.setInt(6, id_accion);
             // se ejecuta la sentencia
             sentencia_preparada.executeUpdate();
             // se cierra sentencia_preparada
@@ -91,39 +102,6 @@ public class TareasJDBC {
 
         return false;
 
-    }
-
-    public boolean insert(String nombre, String fechainicio, String fechalimite, String descripcion, int id_estado) {
-        try {
-            PreparedStatement sentencia_preparada = null;
-            sentencia_preparada = this.conexion.prepareStatement(this.insertSQL);
-
-            sentencia_preparada.setString(1, nombre);
-            sentencia_preparada.setString(2, fechainicio);
-            sentencia_preparada.setString(3, fechalimite);
-            sentencia_preparada.setString(4, descripcion);
-            sentencia_preparada.setInt(5, id_estado);
-            // se ejecuta la sentencia
-            sentencia_preparada.executeUpdate();
-            // se cierra sentencia_preparada
-            sentencia_preparada.close();
-            // si el try no tomo una excepcion hasta aqui, se avisa que se creo el usuario
-            JOptionPane.showMessageDialog(null, "El usuario ha sido creado con éxito");
-
-            return true;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            // se notifica que no puedo crearse el usuario
-            JOptionPane.showMessageDialog(null,
-                    "Ha ocurrido un error y no se pudo" + " crear la cuenta. Error: " + e.getStackTrace() + "", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-
-        return false;
-    }
-
-    public void insert(String nombreTarea, String fechainicio, String fechalimite, String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }  
+   
 }

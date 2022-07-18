@@ -1,40 +1,72 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pantallas;
 
-import baseDatos.Guardar_id;
-        
+import Pantallas.pantallaTablero;
+
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import baseDatos.Conexion;
 import java.awt.Color;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo
  */
 public class espacio_de_trabajo extends javax.swing.JFrame {
+ public String tablero;
     /**
      * Creates new form espacio_de_trabajo
      */
-    
-    int xMouse,yMouse;
-    
-public espacio_de_trabajo() {
+    int xMouse, yMouse;
+
+    public espacio_de_trabajo() {
         initComponents();
-    
-        
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "ID", "Nombre"
+                    }
+            ) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            Statement st = con.createStatement();
+
+            String sql = "select * from espacio_trabajo";
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String id = String.valueOf(rs.getInt("id_espacio_trabajo"));
+                String Nombre = rs.getString("nombre_espacio_trabajo");
+
+                String tbData[] = {id, Nombre};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+
+                tblModel.addRow(tbData);
+            }
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,14 +88,18 @@ public espacio_de_trabajo() {
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        agregarTablero = new javax.swing.JButton();
         agregarTablero1 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -125,7 +161,7 @@ public espacio_de_trabajo() {
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(companyName)
-                .addContainerGap(1027, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +169,7 @@ public espacio_de_trabajo() {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logo)
                     .addComponent(companyName))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1200, 70));
@@ -190,7 +226,7 @@ public espacio_de_trabajo() {
                 .addComponent(jButton6)
                 .addGap(17, 17, 17)
                 .addComponent(jButton8)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 330, 540));
@@ -198,18 +234,6 @@ public espacio_de_trabajo() {
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel2.setText("Espacio de Trabajo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
-
-        agregarTablero.setBackground(new java.awt.Color(255, 255, 204));
-        agregarTablero.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        agregarTablero.setText("+ Agregar Tablero");
-        agregarTablero.setBorder(null);
-        agregarTablero.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        agregarTablero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarTableroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(agregarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 300, 30));
 
         agregarTablero1.setBackground(new java.awt.Color(255, 255, 204));
         agregarTablero1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -231,16 +255,7 @@ public espacio_de_trabajo() {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Nombre"
@@ -248,21 +263,35 @@ public espacio_de_trabajo() {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+            .addGroup(contentLayout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 540, 470));
@@ -273,7 +302,7 @@ public espacio_de_trabajo() {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 210, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 210, -1));
 
         jButton1.setText("Aceptar");
         jButton1.setToolTipText("");
@@ -282,28 +311,59 @@ public espacio_de_trabajo() {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
 
         jLabel1.setText("Presione Enter para visualizar");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+
+        jTextField2.setText("Ingrese el nombre del tablero para buscarlo");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 270, -1));
+
+        jButton2.setText("Aceptar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, -1, -1));
+
+        jLabel3.setText("Toque aceptar para mostrar los tableros de la base");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 280, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void agregarTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTableroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_agregarTableroActionPerformed
 
     private void agregarTablero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTablero1ActionPerformed
         // TODO add your handling code here:
@@ -311,9 +371,9 @@ public espacio_de_trabajo() {
 
     private void agregarTablero1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarTablero1MouseClicked
         AgregarEspacioTrabajo eT = new AgregarEspacioTrabajo();
-        eT.setSize(540,470);
-        eT.setLocation(0,0);
-        
+        eT.setSize(540, 470);
+        eT.setLocation(0, 0);
+
         content.removeAll();
         content.add(eT, BorderLayout.CENTER);
         content.revalidate();
@@ -341,62 +401,58 @@ public espacio_de_trabajo() {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dashboard newFrame = new dashboard();
-        newFrame.setVisible (true);
-        this.dispose(); 
+        newFrame.setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         Configuracion newFrame = new Configuracion();
-        newFrame.setVisible (true);
-        this.dispose(); 
+        newFrame.setVisible(true);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        
-        
-        
-        try{
+
+        try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick","postgres", "Keigomitsui77");
-            
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
+
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                    new Object[][]{},
+                    new String[]{
+                        "ID", "Nombre"
+                    }
+            ) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
 
-            },
-            new String [] {
-                "ID", "Nombre"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-            
             Statement st = con.createStatement();
             
-            String sql = "select * from espacio_trabajo";
+            String consulta = jTextField1.getText();
+            String sql = "select * from espacio_trabajo where nombre_espacio_trabajo = '"+ consulta + "'";
             ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-                
+
+            while (rs.next()) {
+
                 String id = String.valueOf(rs.getInt("id_espacio_trabajo"));
                 String Nombre = rs.getString("nombre_espacio_trabajo");
-                
-                
-                String tbData[] = {id,Nombre};
-                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-                
+
+                String tbData[] = {id, Nombre};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+
                 tblModel.addRow(tbData);
             }
             con.close();
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         if (jTextField1.getText().equals("ingrese su email")) {
@@ -406,15 +462,127 @@ public espacio_de_trabajo() {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+  try {
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "ID", "Nombre"
+                    }
+            ) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            Statement st = con.createStatement();
+            
+            String consulta = jTextField1.getText();
+            String sql = "select id_tablero, nombre_tablero from tablero inner join espacio_trabajo on nombre_espacio_trabajo = '" + consulta + "'";
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String id = String.valueOf(rs.getInt("id_tablero"));
+                String Nombre = rs.getString("nombre_tablero");
+
+                String tbData[] = {id, Nombre};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+
+                tblModel.addRow(tbData);
+            }
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        if (jTextField1.getText().equals("ingrese su email")) {
+            jTextField1.setText("");
+            jTextField1.setForeground(Color.black);
+        }        
+//try {
+            //pantallaEditarperfil newFrame = new pantallaEditarperfil();
+           // newFrame.setVisible(true);
+           // this.dispose();
+      //  } catch (Exception ex) {
+         //   Logger.getLogger(espacio_de_trabajo.class.getName()).log(Level.SEVERE, null, ex);
+        //}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+         try {
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Euclick", "postgres", "Keigomitsui77");
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "ID", "Nombre"
+                    }
+            ) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            Statement st = con.createStatement();
+            
+            String consulta = jTextField1.getText();
+            String sql = "select id_tablero, nombre_tablero from tablero inner join espacio_trabajo nombre_espacio_trabajo = '"+consulta+"'";
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String id = String.valueOf(rs.getInt("id_tablero"));
+                String Nombre = rs.getString("nombre_tablero");
+
+                String tbData[] = {id, Nombre};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+
+                tblModel.addRow(tbData);
+            }
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        if (jTextField1.getText().equals("ingrese su email")) {
+            jTextField1.setText("");
+            jTextField1.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        tablero = jTextField2.getText();
+        pantallaTablero newFrame = null;
         try {
-            pantallaEditarperfil newFrame = new pantallaEditarperfil();
-            newFrame.setVisible(true);
-            this.dispose();
+            newFrame = new pantallaTablero();
         } catch (Exception ex) {
             Logger.getLogger(espacio_de_trabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-   
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -451,24 +619,28 @@ public espacio_de_trabajo() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarTablero;
     private javax.swing.JButton agregarTablero1;
     private javax.swing.JLabel companyName;
     private javax.swing.JPanel content;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panelOpcionesPantalla;
     // End of variables declaration//GEN-END:variables

@@ -5,20 +5,30 @@
 package pantallas;
 
 import baseDatos.ActividadesJDBC;
+import java.text.ParseException;
+import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.print.attribute.standard.Fidelity;
 
 /**
  *
  * @author keigo
  */
 public class agregarActividades extends javax.swing.JPanel {
-String nombre;
+
+    String nombre;
     String fechainicio;
     String fechalimite;
     String estado;
-    SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
+    String FI;
+    String FL;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     ActividadesJDBC actividadesjdbc;
+
     /**
      * Creates new form agregarActividades
      */
@@ -36,6 +46,7 @@ String nombre;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -112,6 +123,7 @@ String nombre;
         jLabel5.setText("En proceso");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
+        buttonGroup1.add(rdenproceso);
         rdenproceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdenprocesoActionPerformed(evt);
@@ -123,6 +135,7 @@ String nombre;
         jLabel6.setText("Pendientes");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
+        buttonGroup1.add(rdpendientes);
         rdpendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdpendientesActionPerformed(evt);
@@ -134,6 +147,7 @@ String nombre;
         jLabel7.setText("Finalizadas");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
+        buttonGroup1.add(rdfinalizadas);
         rdfinalizadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdfinalizadasActionPerformed(evt);
@@ -179,24 +193,34 @@ String nombre;
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void rdenprocesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdenprocesoActionPerformed
-estado = "en proceso";
+        estado = "en proceso";
     }//GEN-LAST:event_rdenprocesoActionPerformed
 
     private void rdpendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdpendientesActionPerformed
-estado = "pendiente";
+        estado = "pendiente";
     }//GEN-LAST:event_rdpendientesActionPerformed
 
     private void rdfinalizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdfinalizadasActionPerformed
-estado = "finalizada";
+        estado = "finalizada";
     }//GEN-LAST:event_rdfinalizadasActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-nombre = txtnombre.getText();
-        fechainicio = sdf.format(cldinicio.getDate());
-        fechalimite = sdf.format(cldlimite.getDate());
-
+        int diafi, mesfi, yearfi, diafl, mesfl, yearfl;
+        nombre = txtnombre.getText();
+        diafi = cldinicio.getCalendar().get(Calendar.DAY_OF_MONTH);
+        mesfi = cldinicio.getCalendar().get(Calendar.MONTH);
+        yearfi = cldinicio.getCalendar().get(Calendar.YEAR);
+        fechainicio = yearfi + "-" + mesfi + "-" + diafi;
+        
+        diafl = cldlimite.getCalendar().get(Calendar.DAY_OF_MONTH);
+        mesfl = cldlimite.getCalendar().get(Calendar.MONTH);
+        yearfl = cldlimite.getCalendar().get(Calendar.YEAR);
+        fechalimite= yearfl + "-" + mesfl + "-" + diafl;
         int id_estado = actividadesjdbc.Idestado(estado);
-        actividadesjdbc.insert(nombre, fechainicio, fechalimite, id_estado);
+        FI = fechainicio;
+        FL = fechalimite;
+        
+        actividadesjdbc.insert(nombre, FI, FL, id_estado);
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void cancelarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarBtnMouseClicked
@@ -204,12 +228,13 @@ nombre = txtnombre.getText();
     }//GEN-LAST:event_cancelarBtnMouseClicked
 
     private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
-setVisible(false);        // TODO add your handling code here:
+        setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_cancelarBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnguardar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cancelarBtn;
     private com.toedter.calendar.JDateChooser cldinicio;
     private com.toedter.calendar.JDateChooser cldlimite;
@@ -228,4 +253,10 @@ setVisible(false);        // TODO add your handling code here:
     private javax.swing.JRadioButton rdpendientes;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
+
+    private String cldlimite() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

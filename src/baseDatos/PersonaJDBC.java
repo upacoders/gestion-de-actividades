@@ -1,5 +1,7 @@
 package baseDatos;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -253,5 +255,21 @@ public class PersonaJDBC {
 
 		return false;
 	}
-	 
+        public void guardar(String ruta){
+        String insert = "update foto from persona where id = " + Guardar_id.id + " (foto) values(?)";
+        FileInputStream fi = null;
+        PreparedStatement ps = null;
+        try{
+            File file = new File(ruta);
+            fi = new FileInputStream(file);
+           
+            ps = this.conexion.prepareStatement(insert);
+            ps.setBinaryStream(1, fi);
+           
+            ps.executeUpdate();
+        }catch(Exception ex){
+            System.out.println("Error al agregar la foto "+ex.getMessage());
+        }
+
+   }
 }
